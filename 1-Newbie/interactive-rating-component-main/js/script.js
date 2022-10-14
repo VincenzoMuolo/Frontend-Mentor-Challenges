@@ -1,13 +1,7 @@
-
-function alwaysCenteredCard(){
-    let mainCard = document.getElementById("mainCard");
-    let centerValue=(window.screen.height/2)-(mainCard.clientHeight/2);
-    mainCard.style.marginTop= centerValue+"px";
-    /*Adjust div position according to any height value change*/
-    window.addEventListener("resize", function(){
-        centerValue=(window.screen.height/2)-(mainCard.clientHeight/2);
-        mainCard.style.marginTop= centerValue+"px";
-        mainCard.style.marginTop= centerValue+"px";
-    });
-
+function clickHandler(element){
+    console.log(element.id);
+    for(let i=1;i<=5;i++){
+        document.getElementById(i).classList.remove("active"); 
+    }
+    document.getElementById(element.id).classList.add("active");
 }
