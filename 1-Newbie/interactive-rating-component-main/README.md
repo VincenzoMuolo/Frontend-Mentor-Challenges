@@ -2,7 +2,7 @@
 
 ![Design preview for the Interactive rating component coding challenge](./design/desktop-preview.jpg)
 
-##Official explanation of the challenge
+<h3>Official explanation of the challenge below</h3>
 
 ## Welcome! 👋
 
@@ -26,4 +26,4 @@ Your users should be able to:
 - See the "Thank you" card state after submitting a rating
 
 
-##Work in progress
+<h3>Work in progress</h3>
