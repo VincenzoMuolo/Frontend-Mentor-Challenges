@@ -21,8 +21,9 @@ function saveRating(){
                     document.getElementById("textCard").style.display="none";
                     document.getElementById("thanksCard").style.display="flex";
                     document.getElementById("thanksCard").classList.toggle("animation-in");
+                    document.getElementById("thanksSvg").classList.toggle("animation-in-svg");
                 }
-            ,1500);
+            ,500);
             break;
         }
         else i++;      

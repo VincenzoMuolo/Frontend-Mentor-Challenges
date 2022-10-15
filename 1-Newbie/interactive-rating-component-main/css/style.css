@@ -196,12 +196,15 @@ input[type=button]:hover{
     transition: opacity 500ms;
     opacity: 0;
 }
-
 .animation-in{
     animation: zoomIn;
     animation-duration: 500ms;
     transition: opacity 500ms;
     opacity: 1;
+}
+.animation-in-svg{
+    animation: jackInTheBox;
+    animation-duration: 700ms;
 }
 /*
     Footer class
