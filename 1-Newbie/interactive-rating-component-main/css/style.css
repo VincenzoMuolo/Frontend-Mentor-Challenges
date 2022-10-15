@@ -6,7 +6,7 @@
     --Medium_Grey: hsl(216, 12%, 54%);
     --Dark_Blue: hsl(213, 19%, 18%);
     --Very_Dark_Blue: hsl(216, 12%, 8%);
-    --Dark_Blue_Tr: rgba(38, 56, 78, 0.5);
+    --Dark_Blue_Tr: rgba(38, 56, 78, 0.35);
     --Medium_Grey_Tr1:hsla(216, 12%, 54%, 0.08);
     --Medium_Grey_Tr2:hsla(216, 12%, 54%, 0.15);
     --Orange_Tr: hsla(25, 97%, 53%, 0.80);
@@ -53,6 +53,11 @@ body {
     position: absolute;
     z-index: 2;
 }
+
+/*
+    Rating state class
+*/
+
 .icon-container{
     background-color: var(--Medium_Grey_Tr1);
     border-radius: 50%;
@@ -60,20 +65,22 @@ body {
     padding: 1rem;
     z-index: 3;
     margin-bottom: 1.5rem;
+    opacity: 1;
 }
 .icon-container svg{
     width: 1rem;
     height: 1rem;
 }
-.card-text{
+.text-card{
     display: flex;
     justify-content: left;
     align-items: center;
     flex-wrap: wrap;
     line-height: 1.3rem;
     z-index: 3;
+    opacity: 1;
 }
-.card-text .title {
+.text-card .title {
     color: var(--White);
     font-size:1.5rem;
     font-weight: 700;
@@ -81,7 +88,7 @@ body {
     margin: 0%;
     margin-bottom: 1rem;
 }
-.card-text .paragraph{
+.text-card .paragraph{
     color: var(--Light_Grey);
     font-size: 1rem;
     font-weight: 400;
@@ -94,6 +101,7 @@ body {
     justify-content: space-between;
     margin: auto;
     margin-top: 1.8rem;
+    opacity: 1;
 }
 .rating-element{
     height: 1.2rem;
@@ -116,7 +124,7 @@ body {
     color: var(--White);
     transition: 0.5s;
 }
-input[type=submit]{
+input[type=button]{
     width: 100%;
     margin: auto;
     margin-top: 1.8rem;
@@ -129,12 +137,76 @@ input[type=submit]{
     border-radius: 25px;
     border-width: 0px;
     cursor: pointer;
+    transition: 1s;
+    opacity: 1;
 }
-input[type=submit]:hover{
+input[type=button]:hover{
     background-color: var(--White);
     color: var(--Orange);
     transition: 0.5s;
 }
+
+/*
+    Thank you state class
+*/
+
+.thanks-card{
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+}
+.thanks-card svg{
+    padding-top: 1rem;
+}
+.rating-text-box{
+    width: fit-content;
+    height: fit-content;
+    margin-top: 1.6rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2.5rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Orange);
+    background-color: var(--Medium_Grey_Tr1);
+}
+.rating-text{
+    margin: 0%;
+    opacity: 80%;
+}
+.center{
+    width: 100%;
+    text-align: center;
+}
+.rating-text.spacing{
+    padding: 0ch 0.3ch;
+}
+/*
+    Animations
+*/
+.animation-out{
+    animation: zoomOut;
+    animation-duration: 500ms;
+    transition: opacity 500ms;
+    opacity: 0;
+}
+
+.animation-in{
+    animation: zoomIn;
+    animation-duration: 500ms;
+    transition: opacity 500ms;
+    opacity: 1;
+}
+/*
+    Footer class
+*/
+
 .footer{
     font-size: 0.9rem;
     color: var(--White);
@@ -151,6 +223,7 @@ input[type=submit]:hover{
 .footer a{
  color: var(--Orange);
  padding: 0 0.4rem;
+ opacity: 90%;
  text-decoration: none;
 }
 @media (max-width: 375px) {
