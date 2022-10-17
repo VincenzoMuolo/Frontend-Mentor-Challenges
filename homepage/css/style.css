@@ -1,0 +1,81 @@
+:root{
+--black: rgba(0, 0, 0, 0.85);
+--grey: rgb(50, 50, 50);
+--greySemiTr: rgba(50, 50, 50, 0.90);
+--red: rgba(255, 30, 86, 0.80);
+--orange: rgb(255, 172, 65);
+--white: rgba(255, 255, 255, 0.884);
+--lightBlueSky: #005C97;
+--blueSky: #363795;
+--cien: #2c8f91;
+
+}
+html{
+    height: 100%;
+    font-family: 'Roboto mono';
+}
+body {
+    background: linear-gradient(90deg, var(--lightBlueSky),var(--cien), var(--blueSky));
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0px;
+}   
+@keyframes gradient {
+
+    0% {    background-position: 0% 50%;    }
+    50% {   background-position: 100% 50%;  }
+    100% {  background-position: 0% 50%;    }
+
+}
+.container{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    grid-template-rows: repeat(var(--rows),1fr);
+    position: relative;
+    z-index: 1;
+}
+.cell{
+    position: relative;
+    background-color: var(--greySemiTr);
+}
+
+.container .nav{
+    grid-column-start: 1;
+    grid-column-end: var(--columnNav);
+}
+.nav{
+    width: 100%;
+    background-color: var(--black);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.nav h2{
+    color: var(--white);
+    padding: 1rem;
+}
+
+.container .main-card{
+    grid-row-start: 4;
+    grid-row-end: var(--endRow);
+    grid-column-start: var(--startCol);
+    grid-column-end: var(--endCol);
+    border-radius: 1rem;
+    margin: 1.5px;
+    position: relative;
+    z-index: 2;
+    background-color: var(--black);
+}
+
+.main-card h4{
+    color: var(--white);
+}
+
