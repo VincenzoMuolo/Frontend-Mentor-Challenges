@@ -10,28 +10,28 @@
     <link rel="stylesheet" href="./homepage/css/style.css">
     <script src="./homepage/js/script.js"></script>
 
-    <title>Projects by Vincenzo Muolo</title>   
+    <title>Dashboard</title>   
 </head>
 
-<body onpageshow="createBackground()">
-    <div id="container" class="container">
-        <div id="navBar" class="nav">
-            <h2>Frontend Mentor Challenges</h2>
+<body onpageshow="setHeight()">
+    <div id="nav" class="nav">
+        <div class="title-container">
+            <h2>My completed challenges</h2>
+            <h5>provided by <a href="https://www.frontendmentor.io/challenges">Frontend Mentor</a></h5>
         </div>
-        <div id="mainCard" class="main-card">
-            
-            <div id="newbie" class="content">
-                <h4>Newbie challenges</h4>
-            </div>
-            <div id="junior" class="content">
-                <h4>Junior challenges</h4>
-            </div>
-            <div id="intermediate" class="content">
-                <h4>Intermediate challenges</h4>
-            </div>
-            <div id="advanced" class="content">
-                <h4>Advanced challenges</h4>
-            </div>
+    </div>
+    <div id="container" class="container">    
+        <div id="newbie" class="content" onclick="expandChosenDif(this)">
+            <p id="card-title" >Newbie</p>  
+        </div>
+        <div id="junior" class="content" onclick="expandChosenDif(this)">
+            <p id="card-title" >Junior</p>  
+        </div>
+        <div id="intermediate" class="content" onclick="expandChosenDif(this)">
+            <p id="card-title" >Intermediate</p>
+        </div>
+        <div id="advanced" class="content" onclick="expandChosenDif(this)">
+            <p id="card-title" >Advanced</p>
         </div>
     </div>
 </body>
