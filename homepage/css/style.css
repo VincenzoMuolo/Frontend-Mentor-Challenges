@@ -3,7 +3,7 @@
 --white: rgba(255, 255, 255, 0.90);
 --grey: rgb(50, 50, 50);
 --light-grey: rgb(50, 50, 50, 0.50);
---purple:rgba(101, 32, 190, 0.6);
+--purple:rgba(121, 43, 199, 0.5);
 --light-blue:rgb(106, 190, 205);
 --green: rgb(170, 215, 66);
 --orange:rgb(241, 182, 4);
@@ -11,19 +11,21 @@
 }
 body {
     font-family: 'Roboto mono';
+    position: relative;
     width: 100%;
     height: 100%;
     margin:0;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--black);
     background-color: var(--grey);
+    font-size: 1em;
 }
 .nav{
     width: 100%;
     position:sticky;
     position: relative;
     z-index: 1;
-    padding: 1rem 1.5rem;
+    padding: 1em 1.5em;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -38,56 +40,65 @@ body {
     width: fit-content;
     height: 100%;
     display: flex;
-    gap: 0.2rem;
+    gap: 0.5em;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
 }
 .title-container h2{
     margin: 0%;
-    font-weight: 500;
-    font-size: 1.7rem;
+    font-weight: 700;
+    font-size: 1.2em;
     color: var(--white);
 
 }
 .title-container h5{
     margin: 0%;
+    font-weight: 500;
+    font-size: 0.8em;
 }
 .nav a{
     color: var(--white);
     text-decoration: none;
-    padding: 1rem 0;
+    padding: 1em 0;
 }
 .container{
     width: 80%;
     position: relative;
     margin: auto;
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     box-sizing: border-box;
 }
 .content{
-    padding: 1rem;
+    height: 20%;
+    width: 100%;
+    box-sizing: border-box;
     position: relative;
     box-shadow: 0.2rem 0.2rem 0.2rem;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     border-radius: 10px;
     display: flex;
     transition: padding 200ms ease-out,
-                300ms box-shadow ease-out;
+                box-shadow 300ms  ease-out;
+}
+.content p{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1em;
 }
 .content:hover{
-    padding-left: 1.5rem;
+    padding-left: 1em;
     box-shadow: 0.3rem 0.4rem 0.4rem;
-}
-.fs-div{
-    position: absolute;
-    z-index: 10;
-    width: auto;
-    height: auto;
-
 }
 #newbie {
     background-color: var(--light-blue);

@@ -1,3 +1,14 @@
+/*GLOBAL VARIABLES*/
+const diff= ["newbie","junior","intermediate","advanced"];
+var config = {
+    heightlow  : ["0%","20%"],
+    opacity    : [0,1],
+    fontsize   : ["0em","1.2em"],
+    heightup   : ["95%","20%"],
+    bottom     : ["90%","0"],
+    right      : ["100%","0"],
+    delay      : ["300ms","100ms"],
+};
 
 function setHeight(){
     let navHeight=document.getElementById("nav").offsetHeight,
@@ -14,18 +25,15 @@ function setHeight(){
     });
 
 }
-const diff= ["newbie","junior","intermediate","advanced"];
 
 function expandChosenDif( chosedDiff ){
     if(localStorage.getItem('lastChoise')==chosedDiff.id){
-        /*The user want to close the difficulty page selected,
-            so i need to recreate the initial situation*/
-        transformRows(chosedDiff.id, 1);
-        localStorage.setItem('lastChoise',' ');
+        /*Expand animation off*/
+        transformRows(chosedDiff.id,1);
+        localStorage.setItem('lastChoise',null);
     }
     else {
-        /*The user select a different difficulty than before,
-            so i have to make disappear the other ones*/  
+        /*Expand animation on*/  
         transformRows(chosedDiff.id, 0);
         localStorage.setItem('lastChoise',chosedDiff.id);
     }
@@ -35,15 +43,19 @@ function expandChosenDif( chosedDiff ){
 function transformRows(checkDiff, value){
     diff.forEach(element => {
         if(element!=checkDiff){
-            document.getElementById(element).style.height="0%";
-            document.getElementById(element).style.opacity=0;
-            document.getElementById(element).style.fontSize="0rem";
+            document.getElementById(element).style.height=config.heightlow[value];
+            document.getElementById(element).style.opacity=config.opacity[value];
+            document.getElementById(element).style.fontSize=config.fontsize[value];
             document.getElementById(element).style.transition=
                 "400ms height ease-out, 300ms font-size ease-in, 400ms opacity ease-out";
         }else{
-            document.getElementById(element).style.height="95%";
+            document.getElementById(element).style.height=config.heightup[value];
             document.getElementById(element).style.transition=
                 "400ms height ease-in-out";
+            document.getElementById(element+"-title").style.bottom=config.bottom[value];
+            document.getElementById(element+"-title").style.right=config.right[value];
+            document.getElementById(element+"-title").style.transition=
+                "300ms bottom ease-out, 450ms right ease-in-out "+config.delay[value];
         }
     });
 }
