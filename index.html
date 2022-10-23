@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="./homepage/css/style.css">
     <script src="./homepage/js/script.js"></script>
 
@@ -14,25 +15,50 @@
 </head>
 
 <body onpageshow="setHeight()">
-    <div id="nav" class="nav">
+    <div id="nav" class="nav nav-animation-in">
         <div class="title-container">
-            <h2>My completed challenges</h2>
-            <h5>provided by <a href="https://www.frontendmentor.io/challenges">Frontend Mentor</a></h5>
+            <h2>My challenges</h2>
         </div>
     </div>
     <div id="container" class="container">    
-        <div id="newbie" class="content" onclick="expandChosenDif(this)">
-            <p id="newbie-title" >Newbie</p>  
+        <div id="newbie" class="content" onclick="expandChosenDifficulty(this)">
+            <span id="newbie-counter" class="element-counter">1</span>
+            <h3 id="newbie-title">Newbie</h3>
+            <div id="newbie-challenge-container" class="challenge-container">
+                <div id="newbie-challenge-1" class="challenge" onclick="loadChallenge(this)">
+                    <p class="challenge-name">Interactive rating component</p>
+                    <div class="languages">
+                        <p>HTML</p>
+                        <p>CSS</p>
+                        <p>JS</p>
+                    </div>
+               </div>
+            </div> 
         </div>
-        <div id="junior" class="content" onclick="expandChosenDif(this)">
-            <p id="junior-title" >Junior</p>  
+        <div id="junior" class="content" onclick="expandChosenDifficulty(this)">
+            <span id="junior-counter" class="element-counter">0</span>
+            <h3 id="junior-title">Junior</h3>
+            <div id="junior-challenge-container" class="challenge-container">
+
+            </div> 
         </div>
-        <div id="intermediate" class="content" onclick="expandChosenDif(this)">
-            <p id="intermediate-title" >Intermediate</p>
+        <div id="intermediate" class="content" onclick="expandChosenDifficulty(this)">
+            <span id="intermediate-counter" class="element-counter">0</span>
+            <h3 id="intermediate-title">Intermediate</h3>
+            <div id="intermediate-challenge-container" class="challenge-container">
+
+            </div> 
         </div>
-        <div id="advanced" class="content" onclick="expandChosenDif(this)">
-            <p id="advanced-title" >Advanced</p>
+        <div id="advanced" class="content" onclick="expandChosenDifficulty(this)">
+            <span id="advanced-counter" class="element-counter">0</span>
+            <h3 id="advanced-title">Advanced</h3>
+            <div id="advanced-challenge-container" class="challenge-container">
+
+            </div> 
         </div>
+    </div>
+    <div id="footer" class="footer">
+        <p>Provided by</p><a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a> 
     </div>
 </body>
 </html>

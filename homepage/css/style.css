@@ -1,13 +1,17 @@
 :root{
---black: rgba(0, 0, 0, 0.90);
+--black: rgba(0, 0, 0, 0.80);
 --white: rgba(255, 255, 255, 0.90);
---grey: rgb(50, 50, 50);
---light-grey: rgb(50, 50, 50, 0.50);
---purple:rgba(121, 43, 199, 0.5);
---light-blue:rgb(106, 190, 205);
---green: rgb(170, 215, 66);
---orange:rgb(241, 182, 4);
---dark-orange: rgb(245, 137, 36);
+--grey: rgb(43, 42, 42);
+--dark-grey: rgba(20, 20, 20, 0.90);
+--red:rgba(201, 24, 92, 0.5);
+--light-blue:rgb(106, 190, 205,0.95);
+--green: rgb(170, 215, 66,0.95);
+--orange:rgb(241, 182, 4,0.95);
+--dark-orange: rgb(245, 137, 36,0.95);
+
+}
+*{
+    box-sizing: border-box;
 }
 body {
     font-family: 'Roboto mono';
@@ -16,76 +20,67 @@ body {
     height: 100%;
     margin:0;
     font-weight: 600;
-    color: var(--black);
     background-color: var(--grey);
-    font-size: 1em;
+    font-size: 0.8em;
 }
 .nav{
     width: 100%;
-    position:sticky;
     position: relative;
     z-index: 1;
-    padding: 1em 1.5em;
-    box-sizing: border-box;
+    padding: 1.2em 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--purple);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: 0.25rem 0.25rem 0.25rem;
+    background-color: var(--dark-grey);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
-.title-container{
-    width: fit-content;
-    height: 100%;
-    display: flex;
-    gap: 0.5em;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-}
-.title-container h2{
-    margin: 0%;
-    font-weight: 700;
-    font-size: 1.2em;
-    color: var(--white);
 
-}
-.title-container h5{
-    margin: 0%;
-    font-weight: 500;
-    font-size: 0.8em;
-}
-.nav a{
+.nav h2{
     color: var(--white);
-    text-decoration: none;
-    padding: 1em 0;
+    margin: 0%;
+    font-size: 1.5em;
 }
+
 .container{
-    width: 80%;
-    position: relative;
+    width: 75%;
     margin: auto;
-    margin-top: 1em;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    box-sizing: border-box;
 }
 .content{
-    height: 20%;
+    height: 18%;
     width: 100%;
-    box-sizing: border-box;
     position: relative;
-    box-shadow: 0.2rem 0.2rem 0.2rem;
+    box-shadow: 0.1rem 0.1rem 0.3rem;
     cursor: pointer;
     font-size: 1.2em;
     border-radius: 10px;
-    display: flex;
-    transition: padding 200ms ease-out,
-                box-shadow 300ms  ease-out;
+    background-color: var(--dark-grey);
+    transition: 200ms box-shadow ease-in-out;
 }
-.content p{
+.content:hover{
+    box-shadow: 0.25rem 0.25rem 0.3rem;
+}
+.content .element-counter{
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    right: 0;
+    top: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--white);
+    background-color: var(--grey);
+}
+.content h3{
     width: fit-content;
     height: fit-content;
     margin: auto;
@@ -94,21 +89,144 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 1em;
 }
-.content:hover{
-    padding-left: 1em;
-    box-shadow: 0.3rem 0.4rem 0.4rem;
+
+#newbie            { color: var(--light-blue);  }
+#newbie span       { color: var(--light-blue);  }
+#junior            { color: var(--green);       }
+#junior span       { color: var(--green);       }
+#intermediate      { color: var(--orange);      }
+#intermediate span { color: var(--orange);      }
+#advanced          { color: var(--dark-orange); }
+#advanced span     { color: var(--dark-orange); }
+
+.challenge-container{
+    width: 0%;
+    height: auto;
+    position: relative;
+    margin:auto;
+    top: 15%;
+    bottom: 10%;
+    display: flex;
+    gap: 1.25em;
+    flex-direction: column;
+    font-size: 0em;
 }
-#newbie {
-    background-color: var(--light-blue);
+.challenge{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.8em;
+    border-radius: 10px;
+    gap: 0.8em;
+    background-color: var(--grey);
+    color: var(--white);
 }
-#junior {
-    background-color: var(--green);
+.challenge .challenge-name{
+    font-size: 0.9em;
+    padding-top: 0.3em;
+    font-weight: 700;
+    margin: 0;
 }
-#intermediate {
-    background-color: var(--orange);
+.challenge .languages{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 0.5em;
+    margin: 0;
 }
-#advanced {
-    background-color: var(--dark-orange);
+.challenge-container .languages p{
+    font-size: 0.7em;
+    margin: 0;
+}
+.challenge-container .languages p:first-child {  color: rgb(245, 70, 70);   }
+.challenge-container .languages p:nth-child(2){  color: rgb(149, 193, 235); }
+.challenge-container .languages p:nth-child(3){  color: rgb(246, 250, 0);   }
+
+
+/*
+#########################
+#######   FOOTER  #######
+#########################
+*/
+
+.footer{
+    font-size: 0.9em;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0.5em;
+    gap: 0.4em;
+    color: var(--white);
+    background-color:var(--dark-grey);
+}
+.footer a{
+    color: var(--white);
+    text-decoration: none;
+    padding: .5em;
+    border-radius: 10px;
+    background-color: var(--red);
+}
+
+/*
+#########################
+#####   ANIMATION   #####
+#########################
+*/
+.animation-out{
+    animation: fadeOutLeft;
+    animation-duration: 500ms;
+}
+.nav-animation-out{
+    animation: fadeOutUp;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+}
+.nav-animation-in{
+    animation: fadeInDown;
+    animation-duration: 700ms;
+    animation-timing-function: ease-in-out;
+}
+.animation-in{
+    animation: fadeInRight;
+    animation-duration: 500ms;
+}
+
+
+
+
+
+/*
+########################
+##### MEDIA QUERYS #####
+########################
+*/
+
+@media(min-width: 768px) {
+    body{
+        font-size: 1.2em;
+    }
+}
+@media(min-width: 1280px) {
+    .title-container{
+        flex-direction: row;  
+    }
+    .container{
+        width: 60%;
+        flex-flow: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .content{
+        width: 35%;
+        height: 30%;
+    }
 }
