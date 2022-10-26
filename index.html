@@ -7,9 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="./homepage/css/style.css">
-    <script src="./homepage/js/script.js"></script>
+    <link rel="stylesheet" href="/homepage/css/style.css">
+    <script src="/homepage/js/script.js"></script>
 
     <title>Dashboard</title>   
 </head>
@@ -17,44 +18,43 @@
 <body onpageshow="setHeight()">
     <div id="nav" class="nav nav-animation-in">
         <div class="title-container">
-            <h2>My challenges</h2>
+            <h2>MY CHALLENGES</h2>
         </div>
     </div>
-    <div id="container" class="container">    
-        <div id="newbie" class="content" onclick="expandChosenDifficulty(this)">
-            <span id="newbie-counter" class="element-counter">1</span>
-            <h3 id="newbie-title">Newbie</h3>
-            <div id="newbie-challenge-container" class="challenge-container">
-                <div id="newbie-challenge-1" class="challenge" onclick="loadChallenge(this)">
-                    <p class="challenge-name">Interactive rating component</p>
-                    <div class="languages">
-                        <p>HTML</p>
-                        <p>CSS</p>
-                        <p>JS</p>
+    <div id="container" class="two-panel-layout">
+        <div id="panel-1" class="panel-1">
+            <div id="newbie" class="newbie card-style" 
+                onclick="openCard(this)">
+                <p id="newbie-title">NEWBIE</p>
+                <span id="newbie-box" class="challenge-counter">1</span>
+                <div id="newbie-challenge-container" class="challenge-container">
+                    <div id="newbie-challenge-1" class="challenge" onclick="loadChallenge(this)">
+                        <p class="challenge-name">Interactive rating component</p>
+                        <div class="languages">
+                            <p>HTML</p>
+                            <p>CSS</p>
+                            <p>JS</p>
+                        </div>
                     </div>
-               </div>
-            </div> 
+                </div>
+            </div>
+            <div id="junior" class="junior card-style"
+                onclick="openCard(this)">
+                <p id="junior-title">JUNIOR</p>
+                <span id="junior-box" class="challenge-counter right">0</span>
+            </div>
         </div>
-        <div id="junior" class="content" onclick="expandChosenDifficulty(this)">
-            <span id="junior-counter" class="element-counter">0</span>
-            <h3 id="junior-title">Junior</h3>
-            <div id="junior-challenge-container" class="challenge-container">
-
-            </div> 
-        </div>
-        <div id="intermediate" class="content" onclick="expandChosenDifficulty(this)">
-            <span id="intermediate-counter" class="element-counter">0</span>
-            <h3 id="intermediate-title">Intermediate</h3>
-            <div id="intermediate-challenge-container" class="challenge-container">
-
-            </div> 
-        </div>
-        <div id="advanced" class="content" onclick="expandChosenDifficulty(this)">
-            <span id="advanced-counter" class="element-counter">0</span>
-            <h3 id="advanced-title">Advanced</h3>
-            <div id="advanced-challenge-container" class="challenge-container">
-
-            </div> 
+        <div id="panel-2" class="panel-2">
+            <div id="intermediate" class="intermediate card-style"
+                onclick="openCard(this)">
+                <p id="intermediate-title">INTERMEDIATE</p>
+                <span id="intermediate-box" class="challenge-counter ">0</span>
+            </div>
+            <div id="advanced" class="advanced card-style" 
+                onclick="openCard(this)">
+                <p id="advanced-title">ADVANCED</p>
+                <span id="advanced-box" class="challenge-counter right">0</span>
+            </div>
         </div>
     </div>
     <div id="footer" class="footer">

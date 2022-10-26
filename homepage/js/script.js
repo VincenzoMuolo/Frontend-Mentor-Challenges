@@ -1,34 +1,23 @@
 /*GLOBAL VARIABLES*/
-
-const difficulty= ["newbie","junior","intermediate","advanced"];
-
+const cardType=["newbie","junior","intermediate","advanced"];
 var config = {
     /* Reduced card attributes */
-    closingCardHeight  : ["0%"," "],
-    closingCardWidth   : ["0%","20%"],
-    opacity    : [0,1],
-    fontsize   : ["0em","1.2em"],
-    /* Expanded card attributes */
-    expandCardHeight    : ["90%"," "],
-    expandCardWidth     : ["100%","20%"],
-    expandCardHdelay    : ["400ms","0ms"],
-    expandCardWdelay    : ["200ms","0ms"],
-    titleBottom      : ["85%","0"],
-    titleDelay    : ["300ms","0ms"],
-    marginTop   : ["30px","10px"],
-    counterDelay : ["350ms","550ms"],
-    /* challenge container */
-    containerWidth : ["90%","0%"],
-    containerFont :["1em","0em"],
-    containerAnimTime : ["300ms","200ms"],
-    challengeWidthDelay : ["300ms","0ms"],
-    challengeFontDelay : ["800ms","0ms"],
-    moveRight : ["auto","25px"]
-};
+    closeHeightSwitch   : ["50%","0%"],
+    openHeightSwitch    : ["50%","100%"],
+    closeWidthSwitch    : ["50%","0%"],
+    openWidthSwitch     : ["50%","100%"],
+    heightDelay         : ["0ms","350ms"],
+    switchHeight        : [1,0],
+    panelDelay          : ["200ms","0ms"],
+    closeFontSize       : ["1em","0em"],
+    moveUpTitle         : ["40%","2%"],
+    challengeContainer  : ["0%","100%"],
+    challengeFontSize   : ["0em","1em"],
+    chContainerDelay    : ["0ms","300ms"]
+}
 
 function setHeight(){
     adjustcontent();
-
     /*Readapt if the screen change*/
     window.addEventListener("resize", function(){   
         this.location.reload();
@@ -38,92 +27,178 @@ function setHeight(){
 
 function adjustcontent(){
     let navHeight=document.getElementById("nav").offsetHeight,
-        footerHeight=document.getElementById("footer").offsetHeight,
-        availPage=(screen.availHeight-navHeight-footerHeight),
-        margintop;
-    if(document.body.clientWidth<1280){
-        availPage=(availPage*0.8);
-        margintop=(availPage*0.1);
-    }else if(document.body.clientWidth>=1208){
-        availPage=(availPage*0.6);
-        margintop=(availPage*0.2);
-    }
-    document.getElementById("container").style.marginTop=margintop+"px";
-    document.getElementById("container").style.height=availPage+"px";
+        footerHeight=document.getElementById("footer").offsetHeight;
+    document.getElementById("container").style.top=navHeight+"px";
+    document.getElementById("container").style.bottom=footerHeight+"px";
+    
 }
 
-function expandChosenDifficulty( chosedDifficulty){
-    if(document.body.clientWidth<1280){
-        config.closingCardHeight[1]="18%";
-        config.expandCardHeight[1]="18%";
-    }else if(document.body.clientWidth>=1280){
-        config.closingCardHeight[1]="30%";
-        config.expandCardHeight[1]="30%";
+function openCard(card){
+    let newbie= document.getElementById("newbie"),  junior= document.getElementById("junior"),
+        intermediate= document.getElementById("intermediate"),  advanced= document.getElementById("advanced"),
+        panel1= document.getElementById("panel-1"), panel2= document.getElementById("panel-2"),
+        switchValue, position=0, panelOff=0, panelOn=0, availWidth=document.body.clientWidth;
+
+    if(card.id=="newbie"||card.id=="junior"){
+        panelOff="panel-2";
+        panelOn="panel-1";
+        position=1;
+        /* newbie and junior without delay */
+    }else{
+        panelOff="panel-1";
+        panelOn="panel-2";
+        position=0;
+        /* intermediate and advanced without delay */
     }
-    if(localStorage.getItem('lastChoise')==chosedDifficulty.id){
-        /*Expand animation off*/
-        transformRows(chosedDifficulty.id,1);
-        localStorage.setItem('lastChoise',null);
-    }
-    else {
-        /*Expand animation on*/  
-        transformRows(chosedDifficulty.id, 0);
-
-        localStorage.setItem('lastChoise',chosedDifficulty.id);
-
-    }
-
-}
-
-function transformRows(checkdifficulty, value){
-    difficulty.forEach(element => {
-        /*Cards Changes */
-        if(element!=checkdifficulty){
-            if(document.body.clientWidth>=1280){
-                document.getElementById(element).style.width=config.closingCardWidth[value];
+    //If single panel
+    if(availWidth<=768){
+        if(document.getElementById(card.id).style.height=="100%"){
+            switchValue=0;
+            //
+            document.getElementById("container").style.gap="0.5em";
+            panel1.style.gap="0.5em";
+            panel2.style.gap="0.5em";
+            // 
+        }    
+        else{
+            switchValue=1;
+            //
+            document.getElementById("container").style.gap="0em";
+            panel1.style.gap="0em";
+            panel2.style.gap="0em";
+            // 
+        } 
+        cardType.forEach(element => {
+            if(element!=card.id) {
+                document.getElementById(element).style.height=config.closeHeightSwitch[switchValue];
+                document.getElementById(panelOff).style.height=config.closeHeightSwitch[switchValue];
+                document.getElementById(element).style.fontSize=config.closeFontSize[switchValue];
+            }else {
+                document.getElementById(element).style.height=config.openHeightSwitch[switchValue];
+                document.getElementById(panelOn).style.height=config.openHeightSwitch[switchValue];
+                document.getElementById(element+"-title").style.top=config.moveUpTitle[switchValue];
             }
-            document.getElementById(element).style.height=config.closingCardHeight[value];
-            document.getElementById(element).style.opacity=config.opacity[value];
-            /*Cards font sizes */
-            document.getElementById(element).style.fontSize=config.fontsize[value];
-            document.getElementById(element).style.transition=
-            "450ms height ease-in-out, 450ms width ease-in ,"+
-            "500ms font-size ease-in, 450ms opacity ease-out";
-            /*Challenge counter */
-            document.getElementById(element+"-counter").style.opacity=config.opacity[value];
-            document.getElementById(element+"-counter").style.marginTop=config.marginTop[value];
-            document.getElementById(element+"-counter").style.transition=
-            "150ms opacity ease-out "+config.counterDelay[value]
-                +", 150ms margin-top ease-in "+config.counterDelay[value];
-        }else{
-            /*Card changes*/
-            if(document.body.clientWidth>=1280){
-                document.getElementById(element).style.width=config.expandCardWidth[value];
-            }
-            document.getElementById(element).style.height=config.expandCardHeight[value];
-            document.getElementById(element).style.transition=
-            "500ms height ease-in-out "+config.expandCardHdelay[value]+" , 500ms width ease-out "+config.expandCardWdelay[value];
-            /*Title change*/
-            document.getElementById(element+"-title").style.bottom=config.titleBottom[value];
-            document.getElementById(element+"-title").style.transition=
-                "500ms bottom ease-in "+config.titleDelay[value];
-            /*Challenge counter */
-            document.getElementById(element+"-counter").style.opacity=config.opacity[value];
-            document.getElementById(element+"-counter").style.marginTop=config.marginTop[value];
-            document.getElementById(element+"-counter").style.transition=
-                "250ms opacity ease-out "+config.counterDelay[value]
-                    +", 200ms margin-top ease-in "+config.counterDelay[value];
-            /*Challenge container*/
-            document.getElementById(element+"-challenge-container").style.width=config.containerWidth[value];
-            document.getElementById(element+"-challenge-container").style.fontSize=config.containerFont[value];
-            document.getElementById(element+"-challenge-container").style.marginRight=config.moveRight[value];
-            document.getElementById(element+"-challenge-container").style.transition=
-                "500ms width ease-out "+config.challengeWidthDelay[value]+
-                ","+config.containerAnimTime[value]+" font-size ease-in "+config.challengeFontDelay[value]+
-                ",150ms margin-right ease-out";     
+        });
+    //If two panel
+    }else{
+        if(document.getElementById(card.id).style.width=="100%"){
+            switchValue=0;
+            //
+            document.getElementById("container").style.gap="0.5em";
+            panel1.style.gap="0.5em";
+            panel2.style.gap="0.5em";
+            // 
         }
-    });
+        else{
+            switchValue=1;  
+            //
+            document.getElementById("container").style.gap="0em";
+            panel1.style.gap="0em";
+            panel2.style.gap="0em";
+            //             
+        } 
+        if(card.id=="newbie"||card.id=="intermediate"){
+            if(newbie.style.width!="100%"||newbie.style.width!="100%"){
+                newbie.style.width="100%";
+                intermediate.style.width="100%";
+                junior.style.width="0%";
+                advanced.style.width="0%";
+                //
+                if(card.id=="newbie"){
+                    panel1.style.height="100%";
+                    panel2.style.height="0%";
+                    document.getElementById("newbie-title").style.top="2%";
+
+                }else{
+                    panel2.style.height="100%";
+                    panel1.style.height="0%";
+                    document.getElementById("intermediate-title").style.top="2%";
+                }
+            }else{
+                setTimeout(function rest(){
+                    newbie.style.width="50%";
+                    intermediate.style.width="50%";
+                    junior.style.width="50%";
+                    advanced.style.width="50%";
+                    document.getElementById("newbie-title").style.top="45%";
+                    document.getElementById("junior-title").style.top="45%";
+                    document.getElementById("intermediate-title").style.top="45%";
+                    document.getElementById("advanced-title").style.top="45%";
+                },200);
+                panel1.style.height="50%";
+                panel2.style.height="50%";                
+            }
+        }else if(card.id=="junior"||card.id=="advanced"){
+            if(junior.style.width!="100%"||advanced.style.width!="100%"){
+                junior.style.width="100%";
+                advanced.style.width="100%";
+                newbie.style.width="0%";
+                intermediate.style.width="0%";
+                //
+                if(card.id=="junior"){
+                    panel1.style.height="100%";
+                    panel2.style.height="0%";
+                    document.getElementById("junior-title").style.top="2%";
+                }else{
+                    panel2.style.height="100%";
+                    panel1.style.height="0%";
+                    document.getElementById("advanced-title").style.top="2%";
+                }
+            }else{
+                setTimeout(function rest(){
+                    newbie.style.width="50%";
+                    intermediate.style.width="50%";
+                    junior.style.width="50%";
+                    advanced.style.width="50%";
+                },200);
+                document.getElementById("newbie-title").style.top="45%";
+                document.getElementById("junior-title").style.top="45%";
+                document.getElementById("intermediate-title").style.top="45%";
+                document.getElementById("advanced-title").style.top="45%";
+                panel1.style.height="50%";
+                panel2.style.height="50%";                
+            }
+        }   
+    }
+    /*  ========================================
+                    CHALLENGE CONTAINER
+        =======================================*/
+    if(document.getElementById(card.id+"-challenge-container")!=null){
+        document.getElementById(card.id+"-challenge-container").style.width=config.challengeContainer[switchValue];
+        document.getElementById(card.id+"-challenge-container").style.fontSize=config.challengeFontSize[switchValue];
+        document.getElementById(card.id+"-challenge-container").style.transition=
+        "500ms width ease-in-out "+config.chContainerDelay[switchValue]+
+        ", 500ms font-size ease-in-out "+config.chContainerDelay[switchValue];
+    }
+
+
+    /*
+    ***********************TRANSITIONS***********************
+    */
+    newbie.style.transition= "500ms width ease-in-out, 500ms font-size ease-out,"
+    +"500ms height ease-in-out "+config.heightDelay[(config.switchHeight[0+position])*switchValue];
+    
+    junior.style.transition= "500ms width ease-in-out, 500ms font-size ease-out,"
+    +"500ms height ease-in-out "+config.heightDelay[(config.switchHeight[0+position])*switchValue];
+    
+    intermediate.style.transition= "500ms width ease-in-out, 500ms font-size ease-out,"
+    +"500ms height ease-in-out "+config.heightDelay[(config.switchHeight[1-position])*switchValue];
+    
+    advanced.style.transition= "500ms width ease-in-out, 500ms font-size ease-out,"
+    +"500ms height ease-in-out "+config.heightDelay[(config.switchHeight[1-position])*switchValue];
+
+    document.getElementById("newbie-title").style.transition="350ms top ease-in-out 250ms";
+    document.getElementById("junior-title").style.transition="350ms top ease-in-out 250ms";
+    document.getElementById("intermediate-title").style.transition="350ms top ease-in-out 250ms";
+    document.getElementById("advanced-title").style.transition="350ms top ease-in-out 250ms";
+    document.getElementById("container").style.transition="250ms gap ease-in-out";
+    panel1.style.transition= "500ms height ease-in-out "+config.panelDelay[switchValue]+", 250ms gap ease-in-out";
+    panel2.style.transition= "500ms height ease-in-out "+config.panelDelay[switchValue]+", 250ms gap ease-in-out";
+    /*
+    ***********************TRANSITIONS***********************
+    */
 }
+
 
 function loadChallenge(challenge){
     switch(challenge.id){

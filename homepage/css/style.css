@@ -1,8 +1,9 @@
 :root{
 --black: rgba(0, 0, 0, 0.80);
 --white: rgba(255, 255, 255, 0.90);
---grey: rgb(43, 42, 42);
---dark-grey: rgba(20, 20, 20, 0.90);
+--grey: rgba(43, 42, 42, 0.90);
+--dark-grey: rgba(20, 20, 20, 0.70);
+--light-grey: rgb(53, 53, 53);
 --red:rgba(201, 24, 92, 0.5);
 --light-blue:rgb(106, 190, 205,0.95);
 --green: rgb(170, 215, 66,0.95);
@@ -10,137 +11,194 @@
 --dark-orange: rgb(245, 137, 36,0.95);
 
 }
+
 *{
     box-sizing: border-box;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+html{
+    height: 100%;
 }
 body {
     font-family: 'Roboto mono';
     position: relative;
-    width: 100%;
     height: 100%;
-    margin:0;
-    font-weight: 600;
+    width: 100%;
     background-color: var(--grey);
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
+/*======================================================
+======================== NAVBAR ========================
+========================================================*/
 .nav{
     width: 100%;
     position: relative;
     z-index: 1;
-    padding: 1.2em 1em;
+    padding: 1.5em 0em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: var(--dark-grey);
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
 }
-
 .nav h2{
     color: var(--white);
-    margin: 0%;
     font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 0.25ch;
 }
-
-.container{
-    width: 75%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-.content{
-    height: 18%;
+/*======================================================
+================== TWO PANEL LAYOUT ====================
+========================================================*/
+.two-panel-layout{
     width: 100%;
-    position: relative;
-    box-shadow: 0.1rem 0.1rem 0.3rem;
-    cursor: pointer;
-    font-size: 1.2em;
-    border-radius: 10px;
-    background-color: var(--dark-grey);
-    transition: 200ms box-shadow ease-in-out;
-}
-.content:hover{
-    box-shadow: 0.25rem 0.25rem 0.3rem;
-}
-.content .element-counter{
-    position: absolute;
-    width: 2rem;
-    height: 2rem;
-    right: 0;
-    top: 0;
-    margin-top: 10px;
-    margin-right: 10px;
-    font-size: 0.9em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color: var(--white);
-    background-color: var(--grey);
-}
-.content h3{
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
+    height: 100%;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.3em;
+    gap: 0.5em;
+    border: 0.5em solid transparent;
+
+}
+.card-style{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: grid;
+    font-weight: 700;
+    letter-spacing: 0.25ch;
+    background: var(--grey);
+    background-image: -webkit-radial-gradient(center, circle cover, #3d3d3d42 0%, var(--grey) 100%);
+}
+.card-style::after{
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    border: 0em solid;
+    border-bottom-width: 0.2em;
+    transition: 250ms width ease-in-out 200ms;
+}
+.card-style:hover::after{
+    width: 100%;
+}
+.card-style p{
+    height: 20%;
+    position: absolute;
+    top: 40%;
+    bottom: 40%;
+    left: 0;
+    right: 0;  
 }
 
-#newbie            { color: var(--light-blue);  }
-#newbie span       { color: var(--light-blue);  }
-#junior            { color: var(--green);       }
-#junior span       { color: var(--green);       }
-#intermediate      { color: var(--orange);      }
-#intermediate span { color: var(--orange);      }
-#advanced          { color: var(--dark-orange); }
-#advanced span     { color: var(--dark-orange); }
+.challenge-counter{
+    position: absolute;
+    right: 0;
+    top: 0;
+    letter-spacing: 0ch;
+    margin-top: 0.3em;
+    margin-right: 0.35em;
+    width: 2em;
+    height: 2em;
+    display:grid;
+    place-content: center;
+    background-color: var(--dark-grey);
+}
+.panel-1{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+.panel-1 .newbie{
+    width: 50%;
+    height: 100%;
+    color: var(--light-blue) ;
+}
+.panel-1 .junior{
+    width: 50%;
+    height: 100%;
+    color: var(--green);
+}
+.panel-2{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+.panel-2 .intermediate{
+    width: 50%;
+    height: 100%;
+    color: var(--orange);
+}
 
+.panel-2 .advanced{
+    width: 50%;
+    height: 100%;
+    color: var(--dark-orange);
+}
+/*======================================================
+================== CHALLENGE CONTAINER =================
+========================================================*/
 .challenge-container{
     width: 0%;
-    height: auto;
+    height: 100%;
+    top: 10%;
     position: relative;
     margin:auto;
-    top: 15%;
-    bottom: 10%;
     display: flex;
+    align-items: center;
     gap: 1.25em;
     flex-direction: column;
     font-size: 0em;
 }
 .challenge{
-    width: 100%;
-    height: auto;
+    width: 90%;
+    height: 10%;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 0.5em 0.8em;
-    border-radius: 10px;
-    gap: 0.8em;
-    background-color: var(--grey);
+    background-color: var(--dark-grey);
     color: var(--white);
 }
 .challenge .challenge-name{
+    position: absolute;
+    width: fit-content;
+    height: auto;
+    top: 15%;
+    left: 3%;
     font-size: 0.9em;
-    padding-top: 0.3em;
     font-weight: 700;
-    margin: 0;
 }
 .challenge .languages{
+    width: 50%;
+    height: 40%;
+    position: absolute;
+    bottom: 10%;
+    right: 3%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: flex-end;
     gap: 0.5em;
-    margin: 0;
+    font-size: 0.7em;
 }
 .challenge-container .languages p{
-    font-size: 0.7em;
-    margin: 0;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    
 }
 .challenge-container .languages p:first-child {  color: rgb(245, 70, 70);   }
 .challenge-container .languages p:nth-child(2){  color: rgb(149, 193, 235); }
@@ -154,7 +212,7 @@ body {
 */
 
 .footer{
-    font-size: 0.9em;
+    font-size: 0.8em;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -163,8 +221,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding:0.5em;
-    gap: 0.4em;
+    padding: 0.5em;
+    gap: 0.5em;
     color: var(--white);
     background-color:var(--dark-grey);
 }
@@ -200,33 +258,60 @@ body {
     animation-duration: 500ms;
 }
 
-
-
-
-
 /*
 ########################
 ##### MEDIA QUERYS #####
 ########################
 */
 
-@media(min-width: 768px) {
-    body{
-        font-size: 1.2em;
+@media(max-width: 768px){
+    .panel-1{
+        flex-direction: column;
+    }
+    .panel-1 .newbie{
+        width: 100%;
+        height: 50%;
+    }
+    .panel-1 .junior{
+        width: 100%;
+        height: 50%;
+    }
+    .panel-2{
+        flex-direction: column;
+    }
+    .panel-2 .intermediate{
+        width: 100%;
+        height: 50%;
+    }
+    .panel-2 .advanced{
+        width: 100%;
+        height: 50%;
     }
 }
-@media(min-width: 1280px) {
-    .title-container{
-        flex-direction: row;  
+@media(min-width: 769px){
+    body{
+        font-size: 1em;
     }
-    .container{
-        width: 60%;
-        flex-flow: row;
-        flex-wrap: wrap;
-        align-items: center;
+    .right{
+        left:0;
+        margin-left: 0.35em;
     }
-    .content{
-        width: 35%;
-        height: 30%;
+    .card-style p{
+        height: 10%;
+        position: absolute;
+        top: 45%;
+        bottom: 45%;
+        left: 0;
+        right: 0;  
+    }
+    .challenge .challenge-name{
+        top: 15%;
+        left: 2%;
+        font-size: 1em;
+    }
+    .challenge .languages{
+        bottom: 20%;
+        right: 2%;
+        font-size: 0.8em;
     }
 }
