@@ -7,7 +7,6 @@ function clickHandler(element){
 }
 function saveRating(){
     let i=1;
-    let cardSize= document.getElementById("mainCard");
     while(i<=5){
         if(document.getElementById(i).classList.contains("active")){
             document.getElementById("userVote").textContent=i;
@@ -26,6 +25,24 @@ function saveRating(){
             ,500);
             break;
         }
-        else i++;      
+        else{
+            i++;
+            if(i==5){
+                setTimeout(function delay(){
+                    document.getElementById("submit").classList.toggle("err-no-input");
+                },300);
+            }
+        }  
     }
+}
+function goToHomepage(){
+    changePageAnim();
+    setTimeout(function waitAnim(){
+        location.href="/index.html";
+    },450);
+}
+function changePageAnim(){
+    document.getElementById("nav").classList.toggle("nav-animation-out");
+    document.getElementById("mainCard").classList.remove("animation-page-in");
+    document.getElementById("mainCard").classList.toggle("animation-page-out");
 }

@@ -1,7 +1,8 @@
-/*GLOBAL VARIABLES*/
+/********************************
+************** GLOBAL VARIABLES *
+*********************************/
 const cardType=["newbie","junior","intermediate","advanced"];
 var config = {
-    /* Reduced card attributes */
     closeHeightSwitch   : ["50%","0%"],
     openHeightSwitch    : ["50%","100%"],
     closeWidthSwitch    : ["50%","0%"],
@@ -10,12 +11,16 @@ var config = {
     switchHeight        : [1,0],
     panelDelay          : ["200ms","0ms"],
     closeFontSize       : ["1em","0em"],
-    moveUpTitle         : ["40%","2%"],
     challengeContainer  : ["0%","100%"],
     challengeFontSize   : ["0em","1em"],
-    chContainerDelay    : ["0ms","300ms"]
+    chContainerDelay    : ["0ms","300ms"],
+    counterOpacity      : [1,0]
 }
 
+/********************************
+********** SET CONTAINER HEIGHT *
+******* BASED ON AVAIABLE SPACE *
+*********************************/
 function setHeight(){
     adjustcontent();
     /*Readapt if the screen change*/
@@ -24,21 +29,23 @@ function setHeight(){
         adjustcontent();  
     });
 }
-
 function adjustcontent(){
     let navHeight=document.getElementById("nav").offsetHeight,
         footerHeight=document.getElementById("footer").offsetHeight;
+    if(window.screen.height>500) footerHeight=footerHeight*1.5;
     document.getElementById("container").style.top=navHeight+"px";
     document.getElementById("container").style.bottom=footerHeight+"px";
     
 }
-
+/********************************
+************* OPEN CARD HANDLER *
+*********************************/
 function openCard(card){
-    let newbie= document.getElementById("newbie"),  junior= document.getElementById("junior"),
+    let newbie= document.getElementById("newbie"),              junior= document.getElementById("junior"),
         intermediate= document.getElementById("intermediate"),  advanced= document.getElementById("advanced"),
-        panel1= document.getElementById("panel-1"), panel2= document.getElementById("panel-2"),
-        switchValue, position=0, panelOff=0, panelOn=0, availWidth=document.body.clientWidth;
-
+        panel1= document.getElementById("panel-1"),             panel2= document.getElementById("panel-2"),
+        switchValue, position=0, panelOff=0, panelOn=0,         availWidth=document.body.clientWidth, availHeight=document.body.clientHeight;
+    
     if(card.id=="newbie"||card.id=="junior"){
         panelOff="panel-2";
         panelOn="panel-1";
@@ -50,23 +57,38 @@ function openCard(card){
         position=0;
         /* intermediate and advanced without delay */
     }
-    //If single panel
-    if(availWidth<=768){
+    /*Move title height */
+    document.getElementById(card.id+"-title").style.opacity="0";
+    if(document.getElementById(card.id+"-title").style.bottom==0||document.getElementById(card.id+"-title").style.bottom=="0px"){
+        document.getElementById(card.id+"-title").style.bottom="auto";
+        document.getElementById(card.id+"-box").style.opacity=config.counterOpacity[1];
+        document.getElementById(card.id).classList.toggle("fixed-hover-state");
+        document.getElementById(card.id).classList.toggle("card-hover");
+    }
+    else{
+        document.getElementById(card.id+"-title").style.bottom=0;
+        document.getElementById(card.id+"-box").style.opacity=config.counterOpacity[0];
+        document.getElementById(card.id).classList.toggle("fixed-hover-state");
+        document.getElementById(card.id).classList.toggle("card-hover");
+    }
+    document.getElementById(card.id+"-box").style.transition=
+    "450ms opacity ease-in-out 200ms, 450ms transform ease-in-out";
+    setTimeout(function rest(){
+        document.getElementById(card.id+"-title").style.opacity=1;
+        document.getElementById(card.id+"-title").style.transition=
+        "350ms opacity ease-in-out";
+    },300);
+
+    /********************************
+    ************ SINGLE PANEL LOGIC *
+    *********************************/
+    console.log('Avail Height : '+availHeight+"\nAvail Width : "+availWidth);
+    if(availWidth<1024 && availHeight>availWidth){
         if(document.getElementById(card.id).style.height=="100%"){
             switchValue=0;
-            //
-            document.getElementById("container").style.gap="0.5em";
-            panel1.style.gap="0.5em";
-            panel2.style.gap="0.5em";
-            // 
         }    
         else{
             switchValue=1;
-            //
-            document.getElementById("container").style.gap="0em";
-            panel1.style.gap="0em";
-            panel2.style.gap="0em";
-            // 
         } 
         cardType.forEach(element => {
             if(element!=card.id) {
@@ -76,43 +98,32 @@ function openCard(card){
             }else {
                 document.getElementById(element).style.height=config.openHeightSwitch[switchValue];
                 document.getElementById(panelOn).style.height=config.openHeightSwitch[switchValue];
-                document.getElementById(element+"-title").style.top=config.moveUpTitle[switchValue];
             }
         });
-    //If two panel
+
+    /********************************
+    *************** TWO PANEL LOGIC *
+    *********************************/
     }else{
         if(document.getElementById(card.id).style.width=="100%"){
             switchValue=0;
-            //
-            document.getElementById("container").style.gap="0.5em";
-            panel1.style.gap="0.5em";
-            panel2.style.gap="0.5em";
-            // 
         }
         else{
-            switchValue=1;  
-            //
-            document.getElementById("container").style.gap="0em";
-            panel1.style.gap="0em";
-            panel2.style.gap="0em";
-            //             
+            switchValue=1;         
         } 
         if(card.id=="newbie"||card.id=="intermediate"){
-            if(newbie.style.width!="100%"||newbie.style.width!="100%"){
+            if(newbie.style.width!="100%"){
                 newbie.style.width="100%";
                 intermediate.style.width="100%";
                 junior.style.width="0%";
                 advanced.style.width="0%";
-                //
                 if(card.id=="newbie"){
                     panel1.style.height="100%";
                     panel2.style.height="0%";
-                    document.getElementById("newbie-title").style.top="2%";
 
                 }else{
                     panel2.style.height="100%";
                     panel1.style.height="0%";
-                    document.getElementById("intermediate-title").style.top="2%";
                 }
             }else{
                 setTimeout(function rest(){
@@ -120,16 +131,12 @@ function openCard(card){
                     intermediate.style.width="50%";
                     junior.style.width="50%";
                     advanced.style.width="50%";
-                    document.getElementById("newbie-title").style.top="45%";
-                    document.getElementById("junior-title").style.top="45%";
-                    document.getElementById("intermediate-title").style.top="45%";
-                    document.getElementById("advanced-title").style.top="45%";
                 },200);
                 panel1.style.height="50%";
                 panel2.style.height="50%";                
             }
         }else if(card.id=="junior"||card.id=="advanced"){
-            if(junior.style.width!="100%"||advanced.style.width!="100%"){
+            if(junior.style.width!="100%"){
                 junior.style.width="100%";
                 advanced.style.width="100%";
                 newbie.style.width="0%";
@@ -138,11 +145,9 @@ function openCard(card){
                 if(card.id=="junior"){
                     panel1.style.height="100%";
                     panel2.style.height="0%";
-                    document.getElementById("junior-title").style.top="2%";
                 }else{
                     panel2.style.height="100%";
                     panel1.style.height="0%";
-                    document.getElementById("advanced-title").style.top="2%";
                 }
             }else{
                 setTimeout(function rest(){
@@ -151,10 +156,6 @@ function openCard(card){
                     junior.style.width="50%";
                     advanced.style.width="50%";
                 },200);
-                document.getElementById("newbie-title").style.top="45%";
-                document.getElementById("junior-title").style.top="45%";
-                document.getElementById("intermediate-title").style.top="45%";
-                document.getElementById("advanced-title").style.top="45%";
                 panel1.style.height="50%";
                 panel2.style.height="50%";                
             }
@@ -191,22 +192,22 @@ function openCard(card){
     document.getElementById("junior-title").style.transition="350ms top ease-in-out 250ms";
     document.getElementById("intermediate-title").style.transition="350ms top ease-in-out 250ms";
     document.getElementById("advanced-title").style.transition="350ms top ease-in-out 250ms";
-    document.getElementById("container").style.transition="250ms gap ease-in-out";
-    panel1.style.transition= "500ms height ease-in-out "+config.panelDelay[switchValue]+", 250ms gap ease-in-out";
-    panel2.style.transition= "500ms height ease-in-out "+config.panelDelay[switchValue]+", 250ms gap ease-in-out";
+    panel1.style.transition= "500ms height ease-in-out "+config.panelDelay[switchValue];
+    panel2.style.transition= "500ms height ease-in-out "+config.panelDelay[switchValue];
     /*
     ***********************TRANSITIONS***********************
     */
 }
 
 
-function loadChallenge(challenge){
+function loadChallenge(challenge, event){
     switch(challenge.id){
         case "newbie-challenge-1":
+            event.stopPropagation();
             changePageAnim();
             setTimeout(function waitAnim(){
                 location.href="./1-Newbie/interactive-rating-component-main/html/index.html";
-            },400);
+            },450);
             break;
         default :
             break;
@@ -216,4 +217,5 @@ function loadChallenge(challenge){
 function changePageAnim(){
     document.getElementById("nav").classList.toggle("nav-animation-in");
     document.getElementById("nav").classList.toggle("nav-animation-out");
+    document.getElementById("container").classList.toggle("animation-out");
 }
