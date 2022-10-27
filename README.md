@@ -9,5 +9,4 @@
   <li>4 Advanced</li>
   <li>5 Guru</li>
   </ul>
-  I want to try some challenge for every level (besides Guru for now, cause are all premium)
 </h4>
