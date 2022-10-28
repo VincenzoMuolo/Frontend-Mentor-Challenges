@@ -120,9 +120,8 @@ body {
     z-index: 3;
     opacity: 1;
 }
-.text-card .title {
+.text-card h1 {
     color: var(--White);
-    font-size:1.7rem;
     font-weight: 700;
     letter-spacing: 0.1rem;
     margin-bottom: 1rem;
