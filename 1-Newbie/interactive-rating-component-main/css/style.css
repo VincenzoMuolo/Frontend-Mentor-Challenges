@@ -352,7 +352,7 @@ input[type=button]:hover{
         padding:0.8rem;
         margin-bottom: 1.2rem;
     }
-    .text-card .title {
+    .text-card h1 {
         font-size:1.5rem;
         font-weight: 700;
         letter-spacing: 0.1rem;
