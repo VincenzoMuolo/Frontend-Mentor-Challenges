@@ -140,6 +140,8 @@ body {
     width: 100%;
     height: auto;
     justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin: auto;
     margin-top: 1.8rem;
     opacity: 1;
@@ -368,6 +370,7 @@ input[type=button]:hover{
         justify-content: space-between;
         margin: auto;
         margin-top: 1.5rem;
+        gap: 0.2rem;
     }
     .rating-element{
         height: 0.9rem;
