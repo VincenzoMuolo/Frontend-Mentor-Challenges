@@ -209,6 +209,13 @@ function loadChallenge(challenge, event){
                 location.href="./1-Newbie/interactive-rating-component-main/html/index.html";
             },450);
             break;
+        case "newbie-challenge-2":
+            event.stopPropagation();
+            changePageAnim();
+            setTimeout(function waitAnim(){
+                location.href="./1-Newbie/product-preview-card-component-main/html/index.html";
+            },450);
+            break;
         default :
             break;
     }

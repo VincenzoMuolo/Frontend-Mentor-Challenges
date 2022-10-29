@@ -41,15 +41,13 @@ main{
     right: 0;
     bottom: 0;
     margin: auto;
-    overflow: visible;
+    border-radius: 1em;
 }
 
 main img{
     width: 100%;
     height: 100%;
     object-fit:cover;
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
 }
 /***********************************
 ************************** ARTICLE *
@@ -61,8 +59,6 @@ main article{
     flex-direction: column;
     justify-content: space-between;
     padding: 1.7em;
-    border-top-right-radius: 1em;
-    border-bottom-right-radius: 1em;
 }
 article h5{
     font-weight: 300;
@@ -180,7 +176,23 @@ footer a:hover{
     font-size: 1.2em;
     padding: 0.1em 0.5em;
 }
+/*
+##########################
+#####   ANIMATIONS   #####
+##########################
+*/
 
+.animation-in-left{
+    animation: slideInLeft;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+}
+
+.animation-in-right{
+    animation: slideInRight;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+}
 
 /***********************************
 ******************** MEDIA QUERIES *
@@ -239,6 +251,17 @@ footer a:hover{
     footer a:hover{
         font-size: 1.2em;
         padding: 0.1em 0.5em;
+    }
+    .animation-in-left{
+        animation: slideInDown;
+        animation-duration: 500ms;
+        animation-timing-function: ease-in-out;
+    }
+    
+    .animation-in-right{
+        animation: slideInUp;
+        animation-duration: 500ms;
+        animation-timing-function: ease-in-out;
     }
 }
 @media screen and (max-width: 768px) and (min-height: 750px){
