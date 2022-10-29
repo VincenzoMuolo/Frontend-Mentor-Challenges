@@ -129,7 +129,7 @@ body {
 .text-card .paragraph{
     color: var(--Light_Grey);
     line-height: 1.3rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 /******************************
  ***************** RATING BOX *
@@ -221,12 +221,14 @@ input[type=button]:hover{
     background-color: var(--Medium_Grey_Tr1);
 }
 .rating-text{
-    margin: 0%;
     opacity: 80%;
 }
 .center{
     width: 100%;
+    padding-top: 0.6rem;
+    padding-bottom: 0.4rem;
     text-align: center;
+    color: var(--White);
 }
 .rating-text.spacing{
     padding: 0ch 0.3ch;

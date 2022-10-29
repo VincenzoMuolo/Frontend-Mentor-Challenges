@@ -42,10 +42,8 @@ body {
     justify-content: center;
     background-color: transparent;
 }
-.nav h2{
+.nav h1{
     color: var(--white);
-    font-size: 1.4em;
-    font-weight: 700;
     letter-spacing: 0.25ch;
 }
 /*======================================================
