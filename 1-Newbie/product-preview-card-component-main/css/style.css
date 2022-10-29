@@ -31,7 +31,7 @@ body{
     font-weight: 500;
 }
 main{
-    height: 45%;
+    height: 50vh;
     width: 35em;
     display: grid;
     grid-template-columns: 50% 50%;
@@ -41,12 +41,15 @@ main{
     right: 0;
     bottom: 0;
     margin: auto;
-    border-radius: 0.5rem;
+    overflow: visible;
 }
+
 main img{
     width: 100%;
-    height: auto;
-    object-fit:fill;
+    height: 100%;
+    object-fit:cover;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
 }
 /***********************************
 ************************** ARTICLE *
@@ -58,6 +61,8 @@ main article{
     flex-direction: column;
     justify-content: space-between;
     padding: 1.7em;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
 }
 article h5{
     font-weight: 300;
@@ -168,12 +173,76 @@ footer a{
     color: var(--very-dark-blue);
     padding: 0.1em 0.3em;
     cursor: pointer;
-    transition: 200ms color ease-in-out, 200ms background-color ease-in-out;
+    border-radius: 0.5em;
+    transition: 300ms font-size ease-in-out, 300ms padding ease-in-out;
 }
 footer a:hover{
-    background-color: var(--dark-cyan);
-    color: var(--white);
-    border-radius: 0.5em;
+    font-size: 1.2em;
+    padding: 0.1em 0.5em;
 }
 
 
+/***********************************
+******************** MEDIA QUERIES *
+***********************************/
+@media screen and (max-width:768px) {
+    main{
+        height: 90%;
+        width: 90%;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 40% 60%;
+    }
+    main img{
+        width: 100%;
+        height: 100%;
+        object-fit:cover;
+        object-position: 100% 30%;
+        grid-row-start: 1;
+    }
+    main article{
+        padding: 1.3em;
+        grid-row-start: 2;
+    }
+    article button{
+        padding: 1.2em 1em;
+    }
+
+    button img{
+        width: 1rem;
+        height: 1rem;
+        display: flex;
+    }
+    .footer{
+        width: 0;
+        height: fit-content;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-size: var(--fs-paragraph);
+        padding: 1em 0;
+        color: var(--very-dark-blue);
+    }
+    footer a{
+        text-decoration: none;
+        color: var(--very-dark-blue);
+        padding: 0.1em 0.3em;
+        cursor: pointer;
+        border-radius: 0.5em;
+        transition: 300ms font-size ease-in-out, 300ms padding ease-in-out;
+    }
+    footer a:hover{
+        font-size: 1.2em;
+        padding: 0.1em 0.5em;
+    }
+}
+@media screen and (max-width: 768px) and (min-height: 750px){
+    main{
+        grid-template-rows: 50% 50%;
+    }
+}
