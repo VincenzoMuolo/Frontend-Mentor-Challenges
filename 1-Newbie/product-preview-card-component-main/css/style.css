@@ -71,7 +71,7 @@ article h1{
     line-height: 1em;
     font-size: 2em;
 }
-article h4{
+article .paragraph{
     font-weight: 400;
     line-height: 1.5em;
     font-size: var(--fs-paragraph);
@@ -110,10 +110,13 @@ article button{
     padding: 1.3em 1em;
     background-color: var(--dark-cyan);
     color: var(--white);
+    font-size: var(--fs-paragraph);
+    font-weight: 600;
+    gap: 0.7em;
     border-radius: 0.5em;
     cursor: pointer;
 }
-article button::after{
+article button::before{
     width: 0;
     position: absolute;
     left: 0;
@@ -124,20 +127,8 @@ article button::after{
     opacity: 0.7;
     transition: 250ms width ease-in;
 }
-article button:hover::after{
+article button:hover::before{
     width:100%;
-}
-.button-content{
-    position: relative;
-    font-size: 1.1em;
-    font-weight: 600;
-    z-index: 999;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:space-between;
-    color: var(--white);
-    gap: 0.6em;
 }
 button img{
     width: 1rem;
