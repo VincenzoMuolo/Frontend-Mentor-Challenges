@@ -1,7 +1,7 @@
 :root{
     /*COLORS*/
     --black: rgba(0, 0, 0, 0.80);
-    --white: rgba(255, 255, 255, 0.80);
+    --white: rgba(255, 255, 255, 0.90);
     --dark-cyan: rgb(60, 128, 103);
     --cream: rgb(242, 235, 227);
     --very-dark-blue: rgb(28, 35, 43);
@@ -14,10 +14,7 @@
     --Montserrat: 'Montserrat', sans-serif;/*Other elements*/
     --Fraunces: 'Fraunces', serif;/*Title and price*/
 }
-/*************** CLASS LIST  ******************
 
-************************************ MAIN CARD*
-************************************** FOOTER */
 *{
     overflow: hidden;
     box-sizing: border-box;
@@ -33,19 +30,119 @@ body{
     font-family: var(--Montserrat);
     font-weight: 500;
 }
-
 main{
-    height: fit-content;
-    width: 40vw;
+    height: 45%;
+    width: 35em;
     display: grid;
+    grid-template-columns: 50% 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 0.5rem;
+}
+main img{
+    width: 100%;
+    height: auto;
+    object-fit:fill;
+}
+/***********************************
+************************** ARTICLE *
+***********************************/
+main article{
+    background-color: var(--white);
+    color: var(--dark-grayish-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.7em;
+}
+article h5{
+    font-weight: 300;
+    font-size:var(--fs-paragraph);
+    letter-spacing: 0.4em;
+}
+article h1{
+    font-family: var(--Fraunces);
+    color: var(--very-dark-blue);
+    line-height: 1em;
+    font-size: 2em;
+}
+article h4{
+    font-weight: 400;
+    line-height: 1.5em;
+    font-size: var(--fs-paragraph);
     
 }
-main h1{
-    font-family: var(--Fraunces);
+/***********************************
+******************** PRICE SECTION *
+***********************************/
+article .prices{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
 }
-
-
-
+.prices .actual-price{
+    font-size: 1.9em;
+    font-family: var(--Fraunces);
+    color: var(--dark-cyan);
+}
+.prices .old-price{
+    text-decoration: line-through;
+    font-size: 0.9em;
+}
+/***********************************
+*************************** BUTTON *
+***********************************/
+article button{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 1.3em 1em;
+    background-color: var(--dark-cyan);
+    color: var(--white);
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+article button::after{
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    content: "";
+    background-color: var(--black);
+    opacity: 0.7;
+    transition: 250ms width ease-in;
+}
+article button:hover::after{
+    width:100%;
+}
+.button-content{
+    position: relative;
+    font-size: 1.1em;
+    font-weight: 600;
+    z-index: 999;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    color: var(--white);
+    gap: 0.6em;
+}
+button img{
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+}
 
 /***********************************
 *************************** FOOTER *
@@ -64,12 +161,19 @@ main h1{
     flex-wrap: wrap;
     font-size: var(--fs-paragraph);
     padding: 1em 0;
-    color: var(--black);
+    color: var(--very-dark-blue);
 }
 footer a{
     text-decoration: none;
-    color: var(--dark-cyan);
-    padding: 0 0.2em;
+    color: var(--very-dark-blue);
+    padding: 0.1em 0.3em;
+    cursor: pointer;
+    transition: 200ms color ease-in-out, 200ms background-color ease-in-out;
+}
+footer a:hover{
+    background-color: var(--dark-cyan);
+    color: var(--white);
+    border-radius: 0.5em;
 }
 
 
