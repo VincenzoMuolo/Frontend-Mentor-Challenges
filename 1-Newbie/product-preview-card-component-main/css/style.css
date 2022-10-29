@@ -1,0 +1,75 @@
+:root{
+    /*COLORS*/
+    --black: rgba(0, 0, 0, 0.80);
+    --white: rgba(255, 255, 255, 0.80);
+    --dark-cyan: rgb(60, 128, 103);
+    --cream: rgb(242, 235, 227);
+    --very-dark-blue: rgb(28, 35, 43);
+    --dark-grayish-blue: rgb(108, 114, 137);
+    
+    /*PARAGRAPH FONT SIZE*/
+    --fs-paragraph:0.875em; /*like 14px*/
+
+    /*FONT FAMILY*/
+    --Montserrat: 'Montserrat', sans-serif;/*Other elements*/
+    --Fraunces: 'Fraunces', serif;/*Title and price*/
+}
+/*************** CLASS LIST  ******************
+
+************************************ MAIN CARD*
+************************************** FOOTER */
+*{
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100vh;
+}
+body{
+    width: 100vw;
+    background-color:var(--cream);
+    font-family: var(--Montserrat);
+    font-weight: 500;
+}
+
+main{
+    height: fit-content;
+    width: 40vw;
+    display: grid;
+    
+}
+main h1{
+    font-family: var(--Fraunces);
+}
+
+
+
+
+/***********************************
+*************************** FOOTER *
+***********************************/
+
+.footer{
+    width: 100vw;
+    height: fit-content;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: var(--fs-paragraph);
+    padding: 1em 0;
+    color: var(--black);
+}
+footer a{
+    text-decoration: none;
+    color: var(--dark-cyan);
+    padding: 0 0.2em;
+}
+
+
