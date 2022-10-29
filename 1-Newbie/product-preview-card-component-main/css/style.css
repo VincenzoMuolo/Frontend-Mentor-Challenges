@@ -1,7 +1,7 @@
 :root{
     /*COLORS*/
     --black: rgba(0, 0, 0, 0.80);
-    --white: rgba(255, 255, 255, 0.90);
+    --white: rgba(255, 255, 255, 0.95);
     --dark-cyan: rgb(60, 128, 103);
     --cream: rgb(242, 235, 227);
     --very-dark-blue: rgb(28, 35, 43);
@@ -31,7 +31,7 @@ body{
     font-weight: 500;
 }
 main{
-    height: 50vh;
+    height: 55vh;
     width: 35em;
     display: grid;
     grid-template-columns: 50% 50%;
@@ -60,7 +60,7 @@ main article{
     justify-content: space-between;
     padding: 1.7em;
 }
-article h5{
+article .top-text{
     font-weight: 300;
     font-size:var(--fs-paragraph);
     letter-spacing: 0.4em;
