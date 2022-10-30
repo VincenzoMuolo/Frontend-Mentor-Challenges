@@ -133,7 +133,7 @@ figure:hover::after{
     padding-top: 0.5em;
     cursor: pointer;
 }
-.product-info h1:hover{
+.product-info h2:hover{
     color: var(--cyan);
 }
 .product-info p{
