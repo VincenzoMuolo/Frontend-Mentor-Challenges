@@ -250,7 +250,7 @@ header{
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        font-size: 0.7em;
+        font-size: 0.6em;
         padding: 0.8em;
         color: var(--white);
     }
