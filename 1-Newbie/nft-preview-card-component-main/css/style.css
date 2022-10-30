@@ -34,11 +34,10 @@ body{
     place-content: center;
     position: relative;
     z-index: 999;
-    grid-template-rows: 1.2fr 0.8fr;
+    grid-template-rows: 1.1fr 0.9fr;
     background-color: var(--very-dark-blue-card);
     border-radius: 1rem;
     padding: 1.5em;
-    opacity: 0.9;
     box-shadow:  0 12.5px 0 15px rgba(10, 20, 36, 0.2);
 }
 
@@ -126,9 +125,9 @@ figure:hover::after{
     font-weight: 400;
     font-size: 0.9em;
 }
-.product-info h1{
+.product-info h2{
     color: var(--white);
-    font-size: 1.4em;
+    font-size: 1.5em;
     font-weight: 600;
     transition: 300ms color ease-out;
     padding-top: 0.5em;
