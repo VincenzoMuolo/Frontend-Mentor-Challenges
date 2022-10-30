@@ -206,21 +206,7 @@ figure:hover::after{
 footer{
     width: 0vw;
     display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    /* display: flex; */
-    align-items: center;
-    justify-content: center;
-    margin: 1em;
-    color: var(--white);
 }
-footer a{
-    text-decoration: none;
-    padding: 0.1em 0.4em;
-    color: var(--cyan);
-}
-
 /************************************************
 ********************************* AMIMATIONS */
 .animation-in{
@@ -254,5 +240,22 @@ footer a{
     }
     .owner-banner p{
         font-size: 1.1em;
+    }
+    footer{
+        width: 100vw;
+        display: fixed;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1em;
+        color: var(--white);
+    }
+    footer a{
+        text-decoration: none;
+        padding: 0.1em 0.4em;
+        color: var(--cyan);
     }
 }
