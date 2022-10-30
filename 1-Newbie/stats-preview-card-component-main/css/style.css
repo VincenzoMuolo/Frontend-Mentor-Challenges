@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+:root{
+    --very-dark-blue-bg: rgb(9, 11, 26);
+    --dark-desaturated-blue-card: rgb(27, 25, 56);
+    --soft-violet-accent: rgb(170, 92, 219);
+    --white: rgb(255, 255, 255); /* main heading, stats */
+    --slightly-transparent-white-paragraph: rgba(255, 255, 255, 0.75); /* main paragraph */
+    --slightly-transparent-white-stats: rgba(255, 255, 255, 0.6); /* stat headings */
+    /*FONT SIZE*/
+    --paragraph: 0.93em; /* like 15px */
+    /*FONT FAMILY*/
+    --inter: 'Inter', sans-serif;
+    --lexend-deca:'Lexend Deca', sans-serif;
+}
+
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+html,body{
+    height: 100vh;
+}
+body{
+    width: 100vw;
+    display: grid;
+    place-content: center;
+    background-color: var(--very-dark-blue-bg);
+    font-family: var(--inter);
+    color: var(--white);
+}
+main{
+    width: 85vw;
+    height: 85vh;
+    display: grid;
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 100%;
+    z-index:999;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    background-color: var(--dark-desaturated-blue-card);
+}
+/**************************************************
+****************************************** IMAGE */
+picture{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+picture img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+picture::after{
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    opacity: 0.3;
+    filter: saturate(200%);
+    background-color: var(--soft-violet-accent);
+}
+
+/**************************************************
+**************************************** ARTICLE */
+article{
+    width: 80vw;
+    height: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 30% 30% 40%;
+    padding: 1em;
+}
+article .title{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+.title h1{
+    text-align: center;
+    font-size: 1.6em;
+}
+article h1 span{    color: var(--soft-violet-accent);   }
+
+article .paragraph{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    font-size: var(--paragraph);
+    line-height: 1.6em;
+    font-weight: 400;
+    color: var(--slightly-transparent-white-paragraph);
+}
+.stats-section{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: .8em;
+    gap: 0.5em;
+}
+.stats-section h2{
+    padding-bottom: 0.2em;
+    font-size: 1.2em;
+}
+.stats-section p{
+    font-family: var(--lexend-deca);
+    font-weight:400;
+    font-size: 0.7em;
+    letter-spacing: 0.1em;
+    color: var(--slightly-transparent-white-stats);
+}
+
+/**************************************************
+***************************************** FOOTER */
+footer{
+    width: 0vw;
+    height: fit-content;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 0.8em;
+    padding: 1em 0;
+    color: var(--white);
+}
+footer a{
+    text-decoration: none;
+    color: var(--very-dark-blue);
+    padding: 0.1em 0.3em;
+    cursor: pointer;
+    border-radius: 0.5em;
+    transition: 300ms font-size ease-in-out, 300ms padding ease-in-out;
+}
+footer a:hover{
+    font-size: 1.2em;
+    padding: 0.1em 0.5em;
+}
+
+/**************************************************
+********************************** MEDIA QUERIES */
+@media screen and (min-height: 700px) {
+    article{
+        width: 80vw;
+        height: 100%;
+        margin: auto;
+        display: grid;
+        grid-template-rows: 25% 25% 50%;
+        padding: 1em;
+    }
+    .stats-section{
+        padding: 1em;
+        gap: 0.5em;
+    }
+    .stats-section h2{
+        padding-bottom: 0.2em;
+        font-size: 1.4em;
+    }
+    .stats-section p{
+        font-size: 0.8em;
+    }
+}
