@@ -6,28 +6,36 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
     <link rel="stylesheet" href="../css/style.css">
-
+    <script type="text/javascript" src="../js/script.js"></script>
     <title>Frontend Mentor | NFT preview card component</title>
   </head>
   <body>
-    <main>
-      <article>
-        <picture>
-          <img src="../images/image-equilibrium.jpg">
-        </picture>
-        
+    <main >
+      <article class="container">
+        <div id="fs-image" onclick="switchFSImage()" class="fs-image"><img src="../images/image-equilibrium.jpg" alt="EQUILIBRIUM NO. 3429, preview image of the actual 3d cube you'll receive, pretty affordable, but still too much for an image you can have with right click and save :P"></div>
+        <figure onclick="switchFSImage()">
+          <img id="image-id" src="../images/image-equilibrium.jpg" alt="EQUILIBRIUM NO. 3429, preview image of the actual 3d cube you'll receive, pretty affordable, but still too much for an image you can have with right click and save :P">
+        </figure>
+        <section class="product-info">
+            <h1>Equilibrium #3429</h1>
+            <p>Our Equilibrium collection promotes balance and calm.</p>
+            <div class="product-info-two-col">
+              <div class="eth-price">
+                <img src="../images/icon-ethereum.svg" alt="" aria-hidden="true">
+                <span>0.041 ETH</span>   
+              </div>
+              <div class="time-remaining">
+                <img src="../images/icon-clock.svg" alt="" aria-hidden="true">
+                <span>3 days left</span>
+              </div>
+            </div>
+            <div class="owner-banner">
+              <img src="../images/image-avatar.png" alt="" aria-hidden="true">
+              <p>Creation of</p> <!--  Jules Wyvern Added with ::after -->
+            </div>
+          </section>
       </article>
-
     </main>
-  <!--     Equilibrium #3429
-
-    Our Equilibrium collection promotes balance and calm.
-
-    0.041 ETH
-    3 days left
-    
-    Creation of Jules Wyvern -->
-
     <footer>
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor.</a>
       Coded by <a href="https://github.com/VincenzoMuolo">Vincenzo Muolo.</a>
