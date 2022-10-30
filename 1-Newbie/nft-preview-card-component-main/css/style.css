@@ -41,6 +41,7 @@ body{
     opacity: 0.9;
     box-shadow:  0 12.5px 0 15px rgba(10, 20, 36, 0.2);
 }
+
 /********************************
 ************************* IMAGE *
 *********************************/
@@ -141,6 +142,7 @@ figure:hover::after{
     font-size: var(--paragraph-fs);
     font-weight: 300;
 }
+
 /***************************************************
 ** PRODUCT INFO ORGANIZED IN THAT WAY TO MAINTAIN **
 ** JUSTIFY CONTENT AS 'SPACE EVENLY' ***************
@@ -168,6 +170,7 @@ figure:hover::after{
     align-items: center;
     gap: 0.5em;
 }
+
 /************************************************
 ********************************* OWNER BANNER */
 .owner-banner{
@@ -220,8 +223,15 @@ footer a{
 }
 
 /************************************************
-********************************* MEDIA QUERIES */
+********************************* AMIMATIONS */
+.animation-in{
+    animation: zoomIn;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+}
 
+/************************************************
+********************************* MEDIA QUERIES */
 @media screen and (min-width: 430px) {
     .container{
         width: 70vw;
