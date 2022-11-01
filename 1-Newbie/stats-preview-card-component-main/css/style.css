@@ -34,13 +34,12 @@ body{
     color: var(--white);
 }
 main{
-    width: 85vw;
+    width: 82.5vw;
     height: 85vh;
-    display: grid;
-    grid-template-rows: 30% 70%;
-    grid-template-columns: 100%;
-    z-index:999;
+    display: flex;
+    align-content: center;
     justify-content: space-between;
+    flex-direction: column;
     border-radius: 0.5rem;
     background-color: var(--dark-desaturated-blue-card);
 }
@@ -49,6 +48,7 @@ main{
 picture{
     width: 100%;
     height: 100%;
+    flex-basis: 45%;
     position: relative;
     z-index: 1;
 }
@@ -57,73 +57,63 @@ picture img{
     width: 100%;
     height: 100%;
     object-fit: fill;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
 }
 picture::after{
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     content: "";
-    opacity: 0.3;
-    filter: saturate(200%);
+    opacity: 0.4;
+    filter:contrast(200%);
     background-color: var(--soft-violet-accent);
 }
 
 /**************************************************
 **************************************** ARTICLE */
 article{
-    width: 80vw;
+    width: 85%;
     height: 100%;
     margin: auto;
-    display: grid;
-    grid-template-rows: 30% 30% 40%;
-    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 0 0.5em 0;
 }
-article .title{
+article h1{
     width: 100%;
-    height: 100%;
-    display: grid;
-    place-content: center;
-}
-.title h1{
     text-align: center;
-    font-size: 1.6em;
 }
 article h1 span{    color: var(--soft-violet-accent);   }
 
-article .paragraph{
+article p{
     width: 100%;
-    height: 100%;
-    display: grid;
-    place-content: center;
     text-align: center;
     font-size: var(--paragraph);
-    line-height: 1.6em;
-    font-weight: 400;
+    line-height: 1.4em;
+    
     color: var(--slightly-transparent-white-paragraph);
 }
-.stats-section{
+article .stats {
     width: 100%;
-    height: 100%;
-    text-align: center;
+    height: 40%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    padding: .8em;
-    gap: 0.5em;
+    gap: 1em;
 }
-.stats-section h2{
-    padding-bottom: 0.2em;
-    font-size: 1.2em;
+.stat h2{
+    width: 100%;
+    text-align: center;
+    font-size: 1.4em;
 }
-.stats-section p{
+.stat p{
+    width: 100%;
+    text-align: center;
     font-family: var(--lexend-deca);
     font-weight:400;
     font-size: 0.7em;
@@ -162,25 +152,132 @@ footer a:hover{
 }
 
 /**************************************************
+********************************** ANIMATIONS */
+
+.picture-anim{
+    animation: fadeInDown;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+}
+.article-anim{
+    animation: fadeInUp;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+}
+
+
+/**************************************************
 ********************************** MEDIA QUERIES */
-@media screen and (min-height: 700px) {
+
+
+@media screen and (min-width: 375px) {
+    main{
+        width: 86.6vw;
+        height: 81.8vh;
+    }
+    picture{
+        flex-basis: 40%;
+    }
     article{
-        width: 80vw;
-        height: 100%;
-        margin: auto;
+        padding: 2.5em 0 1em 0;
+    }
+    article .stats {
+        height: 50%;
+    }
+    article h1{
+        font-size: 1.7em;
+    }
+    article p{
+        font-size: var(--paragraph);
+        line-height: 1.7em;
+        letter-spacing: 0.05ch;
+        padding: 0.5em 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    main{
+        width: 75.3vw;
+        height: 56.2vh;
         display: grid;
-        grid-template-rows: 25% 25% 50%;
-        padding: 1em;
+        grid-template-rows: 100%;
+        grid-template-columns: 55% 45%;
     }
-    .stats-section{
-        padding: 1em;
-        gap: 0.5em;
+    article{
+        width: 85%;
+        height: 90%;
+        padding: 1em 0 0.5em 0;
+        grid-row-start: 1;
     }
-    .stats-section h2{
-        padding-bottom: 0.2em;
-        font-size: 1.4em;
+    article h1{
+        text-align: left;
     }
-    .stats-section p{
-        font-size: 0.8em;
+    
+    article p{
+        text-align: left;
+    }
+    article .stats {
+        height: 35%;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 2.5em;
+    }
+    .stat h2{
+        text-align: left;
+    }
+    .stat p{
+        text-align: left;
+    }
+    .picture-anim{
+        animation: fadeInRight;
+        animation-duration: 500ms;
+        animation-timing-function: ease-in-out;
+    }
+    .article-anim{
+        animation: fadeInLeft;
+        animation-duration: 500ms;
+        animation-timing-function: ease-in-out;
+    }
+}
+@media screen and (min-width: 1280px) {
+    article{
+        width: 75%;
+        height: 80%;
+    }
+    article .stats {
+        height: 40%;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 2.5em;
+    }
+}
+@media screen and (min-width: 1440px) {
+    main{
+        grid-template-columns: 52% 48%;
+    }
+    article{
+        width: 80%;
+        height: 80%;
+        align-items: flex-start;
+    }
+    article h1{
+        width: 90%;
+        text-align: left;
+        font-size: 2.3em;
+    }
+    
+    article p{
+        width: 90%;
+        text-align: left;
+    }
+    article .stats {
+        width: 90%;
+        height: 35%;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 4.5em;
+    }
+    .stats .stat{
+        margin-top: 2em;
     }
 }
