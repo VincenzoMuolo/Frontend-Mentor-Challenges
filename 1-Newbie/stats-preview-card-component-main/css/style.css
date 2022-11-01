@@ -259,12 +259,6 @@ footer a:hover{
         padding: 1em 0;
         color: var(--white);
     }
-    @media (min-height: 900px){
-        main{
-            width: 85vw;
-            height: 40vh;
-        }
-    }
 }
 @media screen and (min-width: 1280px) {
     article{
