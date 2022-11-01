@@ -140,15 +140,14 @@ footer{
 }
 footer a{
     text-decoration: none;
-    color: var(--very-dark-blue);
-    padding: 0.1em 0.3em;
+    color: var(--soft-violet-accent);
+    padding: 0.5em 0.4em;
     cursor: pointer;
     border-radius: 0.5em;
-    transition: 300ms font-size ease-in-out, 300ms padding ease-in-out;
+    transition: 300ms font-size ease-in-out;
 }
 footer a:hover{
     font-size: 1.2em;
-    padding: 0.1em 0.5em;
 }
 
 /**************************************************
@@ -237,6 +236,21 @@ footer a:hover{
         animation: fadeInLeft;
         animation-duration: 500ms;
         animation-timing-function: ease-in-out;
+    }
+    footer{
+        width: 100vw;
+        height: fit-content;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-size: 0.8em;
+        padding: 1em 0;
+        color: var(--white);
     }
 }
 @media screen and (min-width: 1280px) {
