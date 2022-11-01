@@ -171,20 +171,25 @@ footer a:hover{
 
 @media screen and (min-width: 375px) {
     main{
-        width: 86.6vw;
-        height: 81.8vh;
-    }
-    picture{
-        flex-basis: 40%;
+        width: 85vw;
+        height: 90vh;
     }
     article{
-        padding: 2.5em 0 1em 0;
+        padding: 2em 0 1em 0;
     }
-    article .stats {
-        height: 50%;
-    }
-    article h1{
-        font-size: 1.7em;
+    @media (min-height: 800px){
+        main{
+            height: 81.8vh;
+        }
+        picture{
+            flex-basis: 40%;
+        }
+        article h1{
+            font-size: 1.7em;
+        }
+        article .stats {
+            height: 50%;
+        }
     }
     article p{
         font-size: var(--paragraph);
@@ -192,6 +197,8 @@ footer a:hover{
         letter-spacing: 0.05ch;
         padding: 0.5em 0;
     }
+    
+
 }
 
 @media screen and (min-width: 768px) {
@@ -251,6 +258,12 @@ footer a:hover{
         font-size: 0.8em;
         padding: 1em 0;
         color: var(--white);
+    }
+    @media (min-height: 900px){
+        main{
+            width: 85vw;
+            height: 40vh;
+        }
     }
 }
 @media screen and (min-width: 1280px) {
