@@ -2,8 +2,8 @@
 :root{
     --pale-blue: rgb(224, 232, 255);
     --soft-violet: rgb(118, 108, 241);
-    --pale-blue-semi-transparent: rgb(224, 232, 255, 0.4);
-    --bright-blue: rgb(56, 41, 224);
+    --pale-blue-semi-transparent: #e0e8ff66;
+    --bright-blue: #3829e0;
     --very-pale-blue: rgb(245, 247, 255);
     --desaturated-blue: rgb(114, 128, 167);
     --dark-blue: rgb(31, 47, 86);
@@ -142,6 +142,7 @@ article span{
 article span:hover{
     color:var(--dark-blue);
 }
+
 /**************************************************
 ***************************************** FOOTER */
 footer{
@@ -162,7 +163,7 @@ footer{
 }
 footer a{
     text-decoration: none;
-    color: var(--soft-violet-accent);
+    color: var(--soft-violet);
     padding: 0.5em 0.4em;
     cursor: pointer;
     border-radius: 0.5em;
@@ -187,27 +188,39 @@ footer a:hover{
         }
     }
 }
-@media screen and (min-width: 465px){
-    main{
-        width: calc( 87.7vw - 15vw);
-    }
 
-}
-@media screen and (min-width: 768px){
+@media screen and (min-width: 568px){
     main{
-        width: calc( 87.7vw - 30vw);
+        width: calc( 87.7vw - 25vw);
     }
 }
+
 @media screen and (min-width: 988px){
     main{
-        width: calc( 87.7vw - 40vw);
+        width: calc( 87.7vw - 45vw);
+    }
+    footer{
+        width: 100vw;
+        height: fit-content;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-size: 0.8em;
+        padding: 1em 0;
+        color: var(--dark-blue);
     }
 }
+
 @media screen and (min-width: 1440px){
     main{
         width: 31.52vw;
         height: 77.7vh;
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
     main .class-img{
         width: 100%;
@@ -217,20 +230,3 @@ footer a:hover{
         gap: 0.5em;
     }
 }
-
-
-/* footer{
-    width: 100vw;
-    height: fit-content;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-size: 0.8em;
-    padding: 1em 0;
-    color: var(--white);
-} */
