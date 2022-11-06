@@ -219,10 +219,10 @@ footer{
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    position: relative;
+    position: fixed;
     bottom: 0;
-    font-size: 0.8em;
-    padding: 0.5em 0;
+    font-size: 0.7em;
+    padding: 0.4em 0;
     /*FOOTER REMAIN THE SAME ON THEME SWITCH*/
     color: var(--very-light-gray);
     background-color: var(--very-dark-blue);
