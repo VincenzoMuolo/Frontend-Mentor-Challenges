@@ -9,6 +9,13 @@
     --very-light-gray: rgb(250, 250, 250);
     /*FONT SIZE*/
     --paragraph: 0.9375rem; /*15px*/
+    --background:var(--very-light-gray);
+    --card-background:var(--very-light-gray);
+    --title-color:var(--very-dark-blue);
+    --paragraph-color:var(--grayish-blue);
+    --opposite-color:var(--very-dark-blue);
+    --shadow-effect:0 10px 25px var(--grayish-blue);
+    --border-effect: 0 solid;
 }
 /*************************************************
 ***************************************** HAS() */
