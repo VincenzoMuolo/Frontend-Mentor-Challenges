@@ -64,9 +64,10 @@ h2{
 
 html{
     font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
+    height: 100vh;
 }
 body{
+    height: 100vh;
     max-width: 100vw;
     height: auto;
     background-color: var(--background);
@@ -130,7 +131,6 @@ input[type="radio"]#dark:checked{
 }
 main{
     width: 85vw;
-    height: auto;
     margin: auto;
     padding: 20% 0;
     display: grid;
@@ -213,7 +213,7 @@ section{
 footer{
     width: 100%;
     height: fit-content;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -250,8 +250,9 @@ footer a:hover{
 @media screen and (min-width: 50rem) {
     main{
         max-width: 80vw;
-        margin: 0 auto;
-        padding: 0;
+        margin:auto;
+        padding-top: 0;
+        padding-bottom: 10rem;
         grid-template-rows: 36% auto;
         gap: 2em;
     }
@@ -285,9 +286,6 @@ footer a:hover{
         grid-row-start: 2;
         grid-row-end: 4;
     }
-    footer{
-        position: absolute
-    };
 }
 @media screen and (min-width: 90rem) {
     main{
