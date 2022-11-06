@@ -27,7 +27,7 @@
     --title-color:var(--very-light-gray);
     --paragraph-color:var(--grayish-blue);
     --opposite-color:var(--very-light-gray);
-    --shadow-effect: 5px 5px 3px;
+    --shadow-effect: 2px 2px 4px;
     --border-effect: 0.3rem solid;
 }
 
