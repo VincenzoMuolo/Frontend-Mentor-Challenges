@@ -3,13 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
   <link rel="stylesheet" href="../css/style.css">
   <title>Frontend Mentor | Four card feature section</title>
-
 </head>
 <body>
+  <header>
+    <form action="" class="theme-switcher">
+      <fieldset>
+        <legend class="visually-hidden">Theme Switcher</legend>
+        <input type="radio" checked name="theme" id="light">
+        <label for="theme" class="visually-hidden">Light theme</label>
+        <input type="radio" name="theme" id="dark">
+        <label for="theme" class="visually-hidden">Dark theme</label>
+      </fieldset>
+    </form>
+  </header>
   <main>
     <article>
       <h1>Reliable, efficient delivery</h1>

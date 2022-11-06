@@ -10,20 +10,42 @@
     /*FONT SIZE*/
     --paragraph: 0.9375rem; /*15px*/
 }
+/*************************************************
+***************************************** HAS() */
+:root:has(#light:checked){
+    --background:var(--very-light-gray);
+    --card-background:var(--very-light-gray);
+    --title-color:var(--very-dark-blue);
+    --paragraph-color:var(--grayish-blue);
+    --opposite-color:var(--very-dark-blue);
+    --shadow-effect:0 10px 25px var(--grayish-blue);
+    --border-effect: 0 solid;
+}
+:root:has(#dark:checked){
+    --background:var(--very-dark-blue);
+    --card-background:var(--very-dark-blue);
+    --title-color:var(--very-light-gray);
+    --paragraph-color:var(--grayish-blue);
+    --opposite-color:var(--very-light-gray);
+    --shadow-effect: 5px 5px 3px;
+    --border-effect: 0.3rem solid;
+}
 
 *,
 *::after,
-*::before{
+*::before,
+    html,body{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
-/************************************************* FONTS*/
+/*************************************************
+************************************** FONTS ****/
 p{
     font-size: 0.8em;
     line-height: 1.6;
     font-weight: 400;
-    color: var(--grayish-blue);
+    color: var(--paragraph-color);
 }
 h1{
     font-weight: 200;
@@ -31,6 +53,7 @@ h1{
 }
 h2{
     font-size: 1.2em;
+    color: var(--title-color);
 }
 .bold{
     font-weight: 600;
@@ -38,16 +61,69 @@ h2{
 .center{
     text-align: center;
 }
-/************************************************* FONTS*/
+
 html{
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
 }
 body{
     max-width: 100vw;
-    min-height: 100vh;
-    background-color: var(--very-light-gray);
-    color: var(--very-dark-blue);
+    height: auto;
+    background-color: var(--background);
+    color: var(--title-color);
+    display: flex;
+    flex-direction: column;
+}
+/*************************************************
+***************************** THEME SWITCHER ****/
+.theme-switcher{
+    width: fit-content;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: min(2rem, 2vw);
+    /*min() is amazing! if the 2vw(2% of the viewport orizontally) is less than 2rem,
+    it use 2vw, otherwise use 2rem as margin!*/
+}
+fieldset{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    border: none;
+    padding: 0.2rem;
+    background-color: var(--opposite-color);
+}
+input[type="radio"]{
+    width: 2rem;
+    height: 2rem;
+    appearance: none;
+    background-color: var(--opposite-color);
+    cursor: pointer;
+}
+input[type="radio"]:checked{
+    background-color: var(--background);
+}
+input[type="radio"]#light:checked{
+    animation: slideInRight;
+    animation-duration: 200ms;
+    animation-timing-function: ease-in-out;  
+}
+input[type="radio"]#dark:checked{
+    animation: slideInLeft;
+    animation-duration: 200ms;
+    animation-timing-function: ease-in-out;
+}
+
+/*************************************************
+**************************** VISUALLY HIDDEN ****/
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
 }
 main{
     width: 85vw;
@@ -66,19 +142,22 @@ article p{
     margin: 1em 0;
     font-size: var(--paragraph);
 }
+
+/*************************************************
+********************************* CARD STYLE ****/
 section{
     width: 100%;
     height: 15rem;
     position: relative;
     padding: 1.2em;
-    background-color: var(--very-light-gray);
-    box-shadow: 0 10px 25px var(--grayish-blue);
+    background-color: var(--background);
+    box-shadow: var(--shadow-effect);/*SHADOW IN DARK MODE?*/
     border-radius: 10px;
-    border: 0 solid;
+    border: var(--border-effect);
     border-top-width: 0.3rem;
 }
 #section-1{
-    border-color: var(--cyan);
+    color: var(--cyan);
 }
 #section-1::after{
     width: auto;
@@ -90,7 +169,7 @@ section{
     background-color: transparent;
 }
 #section-2{
-    border-color:var(--red);
+    color:var(--red);
 }
 #section-2::after{
     width: auto;
@@ -102,7 +181,7 @@ section{
     background-color: transparent;
 }
 #section-3{
-    border-color:var(--orange);
+    color:var(--orange);
 }
 #section-3::after{
     width: auto;
@@ -114,7 +193,7 @@ section{
     background-color: transparent;
 }
 #section-4{
-    border-color:var(--blue);
+    color:var(--blue);
 }
 #section-4::after{
     width: auto;
@@ -132,17 +211,16 @@ footer{
     width: 100%;
     height: fit-content;
     margin: auto;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    position: relative;
+    bottom: 0;
     font-size: 0.8em;
     padding: 0.5em 0;
+    /*FOOTER REMAIN THE SAME ON THEME SWITCH*/
     color: var(--very-light-gray);
     background-color: var(--very-dark-blue);
 }
@@ -156,7 +234,6 @@ footer a{
     transition: 300ms font-size ease-in-out;
 }
 footer a:hover{
-    font-size: 1.2em;
     color: var(--orange);
 }
 /**************************************************
@@ -172,7 +249,7 @@ footer a:hover{
         max-width: 80vw;
         margin: 0 auto;
         padding: 0;
-        grid-template-rows: 38% auto;
+        grid-template-rows: 36% auto;
         gap: 2em;
     }
     article{
@@ -204,11 +281,10 @@ footer a:hover{
     #section-1,#section-4{
         grid-row-start: 2;
         grid-row-end: 4;
-        
     }
     footer{
-        position: fixed;
-    }
+        position: absolute
+    };
 }
 @media screen and (min-width: 90rem) {
     main{

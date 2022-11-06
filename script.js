@@ -237,6 +237,13 @@ function loadChallenge(challenge, event){
                     location.href="./1-Newbie/order-summary-component-main/html/index.html";
                 },450);
             break;
+            case "newbie-challenge-6":
+                event.stopPropagation();
+                changePageAnim();
+                setTimeout(function waitAnim(){
+                    location.href="./1-Newbie/four-card-feature-section-master/html/index.html";
+                },450);
+            break;
         default :
             break;
     }
