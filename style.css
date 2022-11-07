@@ -13,10 +13,10 @@
 
 *{
     box-sizing: border-box;
-    overflow: hidden;
     padding: 0;
     margin: 0;
     text-shadow: .15ch .15ch .15ch var(--black);
+    overflow-x: hidden;
 }
 html{
     height: 100%;
