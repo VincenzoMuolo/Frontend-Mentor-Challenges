@@ -249,8 +249,14 @@ footer a:hover{
         padding: 0;
         margin-bottom: 1rem;
     }
+    .title{
+        font-size: 1rem;
+    }
     .question{
         padding: 1.2rem 0;
+    }
+    input[type="checkbox"]:checked +label> .answer{
+        font-size: 0.9rem;
     }
     input[type="checkbox"]:checked +label{
         font-size: 1rem;
