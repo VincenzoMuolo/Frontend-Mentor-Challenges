@@ -261,4 +261,7 @@ footer a:hover{
     input[type="checkbox"]:checked +label{
         font-size: 1rem;
     }
+    footer{
+        font-size: 1rem;
+    }
 }
