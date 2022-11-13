@@ -1,0 +1,344 @@
+/* Original layout color palette */
+:root {
+  --very_dark_magenta: hsl(300, 43%, 22%);
+  --soft_pink: hsl(333, 80%, 67%);
+  --dark_grayish_magenta: hsl(303, 10%, 53%);
+  --light_grayish_magenta: hsl(300, 24%, 96%);
+  --white: hsl(0, 0%, 100%);
+}
+
+.light {
+  --background: var(--white);
+  --text: var(--very_dark_magenta);
+  --feedback_background: var(--very_dark_magenta);
+  --feedback_text: var(--light_grayish_magenta);
+  --accent: var(--soft_pink);
+  --rating_background: var(--light_grayish_magenta);
+}
+
+.dark {
+  --background: var(--very_dark_magenta);
+  --text: var(--white);
+  --feedback_background:var(--light_grayish_magenta);
+  --feedback_text: var(--very_dark_magenta);
+  --rating_background: var(--dark_grayish_magenta);
+  --accent: var(--soft_pink);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  font-size: 0.94rem;
+  position: relative;
+  display: grid;
+  place-content: center;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: "League Spartan", sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: 400ms color ease-in-out, 400ms background-color ease-in-out, 400ms width ease-in;
+}
+
+.top-bg {
+  position: absolute;
+  z-index: -999;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+@media screen and (min-width: 26.5em) {
+  .top-bg {
+    content: url(/images/bg-pattern-top-desktop.svg);
+    width: min(50%, 40rem);
+  }
+}
+
+.bottom-bg {
+  position: absolute;
+  z-index: -999;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  height: auto;
+  display: flex;
+}
+@media screen and (min-width: 26.5em) {
+  .bottom-bg {
+    content: url(/images/bg-pattern-bottom-desktop.svg);
+    width: min(80%, 60rem);
+    left: auto;
+  }
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+button {
+  width: 4rem;
+  height: 2rem;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  border-radius: 1rem;
+  background-color: var(--background);
+  border: 0.2rem solid var(--feedback_background);
+  transition: 200ms transform ease-out;
+  cursor: pointer;
+}
+button > .ball {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-inline: -0.15rem;
+  border-radius: 50%;
+  background-color: var(--feedback_background);
+  transition: 400ms transform ease-out;
+}
+
+.move-right {
+  transform: translateX(1.95rem);
+  transition: 400ms transform ease-out;
+}
+
+footer {
+  width: 100%;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 1em;
+  position: absolute;
+  bottom: 0;
+}
+
+p, h1, h2, h3, h4, h5, h6, a {
+  margin: 0;
+  padding: 0;
+}
+
+a, a:visited, a:active {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--text);
+  padding-inline: 0.5ch;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+h1, h2 {
+  color: var(--text);
+  text-align: center;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.1rem;
+  padding: 0 1em;
+  line-height: 1;
+}
+@media screen and (min-width: 48em) {
+  h1 {
+    font-size: 3rem;
+    padding: 0;
+  }
+}
+@media screen and (min-width: 64em) {
+  h1 {
+    text-align: left;
+  }
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+p {
+  padding: 1em 0.6em;
+  line-height: 1.4;
+  text-align: center;
+  font-weight: 500;
+}
+@media screen and (min-width: 48em) {
+  p {
+    grid-column: 1;
+    grid-row: 3;
+    font-size: 1rem;
+    padding: 1.5em 0;
+  }
+}
+@media screen and (min-width: 64em) {
+  p {
+    text-align: left;
+  }
+}
+
+section p {
+  color: var(--feedback_text);
+  font-weight: 400;
+  padding: 0;
+}
+
+main {
+  width: min(80%, 50ch);
+  margin: auto;
+  display: grid;
+  place-content: center;
+}
+@media screen and (min-width: 64em) {
+  main {
+    width: min(90%, 60rem);
+  }
+}
+@media screen and (min-width: 90em) {
+  main {
+    width: min(80%, 68.75rem);
+  }
+}
+
+article {
+  width: 100%;
+  height: auto;
+  display: grid;
+  gap: 1em;
+  margin-top: 5em;
+  position: relative;
+}
+@media screen and (min-width: 64em) {
+  article {
+    grid-template-columns: 0.75fr 0.25fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  article > .header {
+    grid-row: span 3;
+  }
+}
+@media screen and (min-width: 90em) {
+  article {
+    grid-template-columns: 0.75fr 0.45fr 0.8fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  article > .header {
+    grid-row: span 3;
+  }
+  article > #rating-container1 {
+    grid-row: 1;
+    transform: translate(-8em);
+  }
+  article > #rating-container2 {
+    transform: translate(-4em);
+  }
+}
+
+.rating-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1em;
+  gap: 1em;
+  border-radius: 8px;
+  background-color: var(--rating_background);
+  outline: var(--dark_theme_outline);
+}
+@media screen and (min-width: 64em) {
+  .rating-container {
+    grid-column: 3;
+    height: 4em;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2em;
+    padding-block: 0;
+    padding-left: 1.5em;
+  }
+}
+
+.stars {
+  display: flex;
+  gap: 0.5em;
+}
+
+aside {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-block: 4rem;
+}
+@media screen and (min-width: 64em) {
+  aside {
+    flex-direction: row;
+    gap: 2.5em;
+  }
+  aside > #section2 {
+    transform: translateY(1.5rem);
+  }
+  aside > #section3 {
+    transform: translateY(3rem);
+  }
+}
+aside section {
+  width: 100%;
+  height: 14rem;
+  padding: 0 2em;
+  display: grid;
+  place-content: center;
+  grid-template-columns: 20% 50% auto;
+  grid-template-rows: 20% auto;
+  gap: 0.8em;
+  background-color: var(--feedback_background);
+  color: var(--feedback_text);
+  border-radius: 8px;
+}
+@media screen and (min-width: 64em) {
+  aside section {
+    height: 15rem;
+  }
+}
+aside section > .user-info {
+  width: 100%;
+  height: auto;
+  grid-column: 1/4; /*PARENT GRID*/
+  display: grid;
+  place-items: center;
+  grid-template-columns: 0.2fr 0.05fr 0.75fr;
+}
+aside section > .user-info img {
+  border-radius: 50%;
+  grid-column: 1;
+  grid-row: 1/3;
+  width: 75%;
+  height: auto;
+}
+aside section > .user-info h3 {
+  grid-row: 1;
+  grid-column: 3;
+  width: 100%;
+}
+aside section > .user-info label {
+  width: 100%;
+  color: var(--accent);
+  grid-column: 3;
+  grid-row: 2;
+}
+aside section > p {
+  grid-column: 1/4;
+  grid-row: 4;
+  text-align: left;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,24 @@
+/* Original layout color palette */
+:root{
+    --very_dark_magenta: hsl(300, 43%, 22%);
+    --soft_pink: hsl(333, 80%, 67%);
+    --dark_grayish_magenta: hsl(303, 10%, 53%);
+    --light_grayish_magenta: hsl(300, 24%, 96%);
+    --white: hsl(0, 0%, 100%);
+}
+.light{
+    --background: var(--white);
+    --text: var(--very_dark_magenta);
+    --feedback_background: var(--very_dark_magenta);
+    --feedback_text: var(--light_grayish_magenta);
+    --accent: var(--soft_pink);
+    --rating_background: var(--light_grayish_magenta);
+}
+.dark{
+    --background: var(--very_dark_magenta);
+    --text: var(--white);
+    --feedback_background:var(--light_grayish_magenta); 
+    --feedback_text: var(--very_dark_magenta);
+    --rating_background: var(--dark_grayish_magenta);
+    --accent: var(--soft_pink);
+}
