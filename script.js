@@ -251,6 +251,13 @@ function loadChallenge(challenge, event){
                     location.href="./1-Newbie/faq-accordion-card-main/html/index.html";
                 },450);
             break;
+            case "newbie-challenge-8":
+                event.stopPropagation();
+                changePageAnim();
+                setTimeout(function waitAnim(){
+                    location.href="./1-Newbie/social-proof-section-master/index.html";
+                },450);
+            break;
         default :
             break;
     }
