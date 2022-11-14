@@ -82,7 +82,7 @@ body {
   box-sizing: inherit;
 }
 
-button {
+.switch {
   width: 4rem;
   height: 2rem;
   position: absolute;
@@ -97,7 +97,7 @@ button {
   transition: 200ms transform ease-out;
   cursor: pointer;
 }
-button > .ball {
+.switch > .ball {
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
