@@ -88,6 +88,7 @@ button {
   position: absolute;
   display: flex;
   align-items: center;
+  padding: 0.07rem;
   top: 2vh;
   right: 2vw;
   border-radius: 1rem;
@@ -99,7 +100,6 @@ button {
 button > .ball {
   width: 1.5rem;
   height: 1.5rem;
-  margin-left: -0.15rem;
   border-radius: 50%;
   background-color: var(--feedback_background);
   transition: 300ms transform ease-out;
