@@ -20,6 +20,10 @@ body{
     padding: 0;
     transition: 400ms color ease-in-out, 400ms background-color ease-in-out, 400ms width ease-in;
 }
+picture{
+    width: fit-content;
+    height: fit-content;
+}
 .top-bg{
     position: absolute;
     z-index: -999;
