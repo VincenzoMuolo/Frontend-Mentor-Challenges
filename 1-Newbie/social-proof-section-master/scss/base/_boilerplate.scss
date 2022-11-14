@@ -27,7 +27,6 @@ body{
     left: 0;
     width: 100%;
     @include breakpoint('small'){
-        content: url("images/bg-pattern-top-desktop.svg");
         width: min(50%, 40rem);
     }
 }
@@ -41,7 +40,6 @@ body{
     height: auto;
     display: flex;
     @include breakpoint('small'){
-        content: url("images/bg-pattern-bottom-desktop.svg");
         width: min(80%, 60rem);
         left: auto;
     }
