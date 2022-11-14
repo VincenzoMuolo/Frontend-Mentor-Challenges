@@ -53,10 +53,10 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  height: 33vh;
 }
 @media screen and (min-width: 26.5em) {
   .top-bg {
-    content: url(/images/bg-pattern-top-desktop.svg);
     width: min(50%, 40rem);
   }
 }
@@ -67,13 +67,12 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
-  width: 100vw;
-  height: auto;
+  width: 100%;
+  height: 50vh;
   display: flex;
 }
 @media screen and (min-width: 26.5em) {
   .bottom-bg {
-    content: url(/images/bg-pattern-bottom-desktop.svg);
     width: min(80%, 60rem);
     left: auto;
   }
