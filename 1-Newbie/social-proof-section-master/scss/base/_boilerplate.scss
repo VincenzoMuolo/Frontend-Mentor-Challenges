@@ -56,9 +56,8 @@ button{
     position: absolute;
     display: flex;
     align-items: center;
-    top: 0;
-    right: 0;
-    margin: 1rem;
+    top: 2vh;
+    right: 2vw;
     border-radius: 1rem;
     background-color: var(--background);
     border: 0.2rem solid var(--feedback_background);
@@ -67,15 +66,15 @@ button{
     &>.ball{
         width: 1.5rem;
         height: 1.5rem;
-        margin-inline: -0.15rem;
+        margin-left: -0.15rem;
         border-radius: 50%;
         background-color: var(--feedback_background);
-        transition: 400ms transform ease-out;
+        transition: 300ms transform ease-out;
     }
 }
 .move-right{
-    transform: translateX(1.95rem);
-    transition: 400ms transform ease-out;
+    transform: translateX(2rem);
+    transition: 300ms transform ease-out;
 }
 footer{
    width: 100%;
