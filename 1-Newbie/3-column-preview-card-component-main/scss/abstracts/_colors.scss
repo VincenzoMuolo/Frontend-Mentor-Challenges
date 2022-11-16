@@ -1,0 +1,39 @@
+/* Original layout color palette */
+:root{
+    --bright_orange: hsl(31, 77%, 52%);
+    --dark_cyan: hsl(184, 100%, 22%);
+    --very_dark_cyan: hsl(179, 100%, 13%);
+    --transparent_white: hsla(0, 0%, 100%, 0.75); /* (paragraphs) */
+    --very_light_gray: hsl(0, 0%, 95%); /* (background, headings, buttons) */
+    --dark-gray:hsl(0, 0%, 15% );
+    --transparent-dark-gray:rgba(87, 87, 87, 0.5);
+    --title:var(--very_light_gray);
+}
+
+.light{
+    --background: var(--very_light_gray);
+    --opposite: var(--dark-gray);
+    --text: var(--dark-gray);
+    --article1: var(--bright_orange);
+    --article2: var(--dark_cyan);
+    --article3: var(--very_dark_cyan);
+    --button1: var(--very_light_gray);
+    --button2: var(--very_light_gray);
+    --button3: var(--very_light_gray);
+    --button1_text: var(--bright_orange);
+    --button2_text: var(--dark_cyan);
+    --button3_text: var(--very_dark_cyan);
+}
+.dark{
+    --background: var(--dark-gray);
+    --opposite: var(--very_light_gray);
+    --text:var(--very_light_gray);
+
+    --article1: hsla(31, 77%, 52%, 0.3);
+    --article2: hsla(184, 100%, 22%, 0.3);
+    --article3: hsla(179, 100%, 13%, 0.3);
+
+    --button1: var(--bright_orange);
+    --button2: var(--dark_cyan);
+    --button3: var(--very_dark_cyan);
+}

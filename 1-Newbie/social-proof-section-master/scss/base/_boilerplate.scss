@@ -29,6 +29,7 @@ body{
     height: 33vh;
     @include breakpoint('small'){
         width: min(50%, 40rem);
+        height: 40vh;
     }
 }
 .bottom-bg{
@@ -43,6 +44,7 @@ body{
     @include breakpoint('small'){
         width: min(80%, 60rem);
         left: auto;
+        height: 60vh;
     }
 }
 

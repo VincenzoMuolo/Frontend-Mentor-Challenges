@@ -58,6 +58,7 @@ body {
 @media screen and (min-width: 26.5em) {
   .top-bg {
     width: min(50%, 40rem);
+    height: 40vh;
   }
 }
 
@@ -75,6 +76,7 @@ body {
   .bottom-bg {
     width: min(80%, 60rem);
     left: auto;
+    height: 60vh;
   }
 }
 

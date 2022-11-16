@@ -1,0 +1,73 @@
+@use '../abstracts/' as *;
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5.3em 0;
+    @include breakpoint('medium'){
+        flex-direction: row;
+    }
+}
+
+#article1{
+    background-color: var(--article1);
+    border-radius: 8px 8px 0 0;
+    color: var(--title);
+    &>button{
+        color: var(--button1_text);
+        background-color: var(--button1);
+        border-color: var(--button1);
+    }
+    &>button:hover{
+        color: var(--very_light_gray);
+    }
+
+    @include breakpoint('medium'){
+        border-radius: 8px 0 0 8px;
+    }
+    
+}
+#article2{
+    background-color: var(--article2);
+    color: var(--title);
+    &>button{
+        color: var(--button2_text);
+        background-color: var(--button2);
+        border-color: var(--button2);
+    }
+    &>button:hover{
+        color: var(--very_light_gray);
+    }
+}
+#article3{
+    background-color: var(--article3);
+    border-radius: 0 0 8px 8px;
+    color: var(--title);
+    &>button{
+        color: var(--button3_text);
+        background-color: var(--button3);
+        border-color: var(--button3);
+    }
+    &>button:hover{
+        color: var(--very_light_gray);
+    }
+
+    @include breakpoint('medium'){
+        border-radius: 0 8px 8px 0;
+    }
+}
+
+article{
+    width: min(20.3em, 90%);
+    height: 27em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 1em 2.3em;
+    @include breakpoint('medium'){
+        width: min(19.16em, 30%);
+        height: 28.75em;
+    }
+}
