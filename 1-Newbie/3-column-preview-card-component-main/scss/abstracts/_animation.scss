@@ -2,25 +2,25 @@
 .anim_article1{
     animation: slideInLeft;
     animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: ease-out;
 }
 .anim_article2{
     animation: slideInRight;
     animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: ease-out;
     @include breakpoint('medium'){ 
         animation: slideInDown;
         animation-duration: 500ms;
-        animation-timing-function: ease-in-out;
+        animation-timing-function: ease-out;
     }
 }
 .anim_article3{
     animation: slideInLeft;
     animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: ease-out;
     @include breakpoint('medium'){
         animation: slideInRight;     
         animation-duration: 500ms;
-        animation-timing-function: ease-in-out;
+        animation-timing-function: ease-out;
     }
 }
