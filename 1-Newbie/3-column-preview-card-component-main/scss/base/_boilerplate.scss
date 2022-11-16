@@ -7,7 +7,7 @@ html{
     padding: 0;
   }
 body{
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     position: relative;
     display: flex;
@@ -44,7 +44,7 @@ input[type="checkbox"]{
     position: absolute;
     display: flex;
     align-items: center;
-    top: 1.5vh;
+    top: 2vh;
     right: 5vw;
     outline: 3px solid var(--opposite);
     border: 2px solid transparent;
