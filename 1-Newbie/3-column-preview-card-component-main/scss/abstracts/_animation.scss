@@ -1,0 +1,26 @@
+@use 'breakpoints' as *;
+.anim_article1{
+    animation: slideInLeft;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+}
+.anim_article2{
+    animation: slideInRight;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    @include breakpoint('medium'){ 
+        animation: slideInUp;
+        animation-duration: 500ms;
+        animation-timing-function: ease-in-out;
+    }
+}
+.anim_article3{
+    animation: slideInLeft;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    @include breakpoint('medium'){
+        animation: slideInRight;     
+        animation-duration: 500ms;
+        animation-timing-function: ease-in-out;
+    }
+}

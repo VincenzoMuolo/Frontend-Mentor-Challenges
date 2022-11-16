@@ -258,6 +258,13 @@ function loadChallenge(challenge, event){
                     location.href="./1-Newbie/social-proof-section-master/index.html";
                 },450);
             break;
+            case "newbie-challenge-9":
+                event.stopPropagation();
+                changePageAnim();
+                setTimeout(function waitAnim(){
+                    location.href="./1-Newbie/3-column-preview-card-component-main/index.html";
+                },450);
+            break;
         default :
             break;
     }

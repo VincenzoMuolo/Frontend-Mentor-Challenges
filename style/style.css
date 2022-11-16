@@ -40,48 +40,28 @@
 .anim_article1 {
   -webkit-animation: slideInLeft;
           animation: slideInLeft;
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
 
 .anim_article2 {
-  -webkit-animation: slideInRight;
-          animation: slideInRight;
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
+  -webkit-animation: slideInTop;
+          animation: slideInTop;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
-}
-@media screen and (min-width: 48em) {
-  .anim_article2 {
-    -webkit-animation: slideInUp;
-            animation: slideInUp;
-    -webkit-animation-duration: 500ms;
-            animation-duration: 500ms;
-    -webkit-animation-timing-function: ease-in-out;
-            animation-timing-function: ease-in-out;
-  }
 }
 
 .anim_article3 {
-  -webkit-animation: slideInLeft;
-          animation: slideInLeft;
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
+  -webkit-animation: slideInRight;
+          animation: slideInRight;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
-}
-@media screen and (min-width: 48em) {
-  .anim_article3 {
-    -webkit-animation: slideInRight;
-            animation: slideInRight;
-    -webkit-animation-duration: 500ms;
-            animation-duration: 500ms;
-    -webkit-animation-timing-function: ease-in-out;
-            animation-timing-function: ease-in-out;
-  }
 }
 
 html {
