@@ -7,6 +7,8 @@ main{
     padding: 5.3em 0;
     @include breakpoint('medium'){
         flex-direction: row;
+        padding-top: 10.62em;
+        padding-bottom: 8.125em;
     }
 }
 
@@ -68,6 +70,6 @@ article{
     padding: 1em 2.3em;
     @include breakpoint('medium'){
         width: min(19.16em, 30%);
-        height: 28.75em;
+        height: 31.25em;
     }
 }

@@ -219,6 +219,8 @@ main {
 @media screen and (min-width: 48em) {
   main {
     flex-direction: row;
+    padding-top: 10.62em;
+    padding-bottom: 8.125em;
   }
 }
 
@@ -285,6 +287,6 @@ article {
 @media screen and (min-width: 48em) {
   article {
     width: min(19.16em, 30%);
-    height: 28.75em;
+    height: 31.25em;
   }
 }/*# sourceMappingURL=style.css.map */
