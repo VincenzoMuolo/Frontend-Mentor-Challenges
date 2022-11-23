@@ -1,6 +1,8 @@
 window.addEventListener("resize", function () {
-   this.location.reload();
-   change_options();
+   setTimeout(() => {
+      this.location.reload();
+      change_options();
+   }, 1500);
 });
 
 function switch_theme() {
