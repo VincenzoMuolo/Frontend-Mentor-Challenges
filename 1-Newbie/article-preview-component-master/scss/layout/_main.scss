@@ -1,0 +1,184 @@
+@use "../abstracts/" as *;
+
+.card {
+   width: min(20.56rem, 90%);
+   display: flex;
+   justify-content: center;
+   position: relative;
+   z-index: 2;
+   overflow: hidden;
+   align-items: center;
+   flex-direction: column;
+   margin: 4.5em 0 5em 0;
+   border-radius: 1rem;
+   background-color: var(--card_background);
+   box-shadow: 3px 6px 6px hsl(0deg 0% 0% / 0.3);
+   @include breakpoint("medium") {
+      flex-direction: row;
+      padding: 0;
+      margin: auto;
+      width: min(46.63rem, 90%);
+      height: 17.5rem;
+      overflow: visible;
+   }
+   &__image {
+      width: 100%;
+      height: 12.6rem;
+      object-fit: cover;
+      object-position: 0% 20%;
+      filter: brightness(var(--image_brightness));
+      @include breakpoint("medium") {
+         flex-basis: 38%;
+         height: 100%;
+         border-radius: 1rem 0 0 1rem;
+      }
+   }
+   &__article {
+      width: 80%;
+      height: 100%;
+      padding: 1rem 0;
+      display: grid;
+      gap: 1.7em;
+      grid-template-rows: 0.7fr 1fr 0.3fr;
+      @include breakpoint("medium") {
+         width: 100%;
+         height: 100%;
+         flex-basis: 62%;
+         padding: 2em 3em;
+         gap: 1em;
+      }
+   }
+   &__title {
+      font-weight: 700;
+      font-size: 1.25em;
+      line-height: 1.5;
+      padding-top: 1.25em;
+      @include breakpoint("medium") {
+         padding-top: 0;
+         font-size: 1.6em;
+         line-height: 1.4;
+      }
+   }
+   &__paragraph {
+      font-weight: 500;
+      line-height: 1.7;
+      font-size: 0.83rem;
+      color: var(--lighter_text);
+      @include breakpoint("medium") {
+         line-height: 1.5;
+         font-size: 0.85rem;
+      }
+   }
+   &__section {
+      position: relative;
+      width: 100%;
+      height: auto;
+      display: grid;
+      place-items: center;
+      padding-block: 1em 0;
+      grid-template-columns: 0.3fr 1.5fr 0.3fr 0.3fr;
+      @include breakpoint("medium") {
+         padding-block: 0.5em 0;
+         grid-template-columns: 0.3fr 1.5fr 1.5fr 0.3fr;
+      }
+   }
+   &__profile_pic {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+   }
+   &__profile_name {
+      font-size: 0.8rem;
+      @include breakpoint("medium") {
+         font-size: 0.9rem;
+      }
+   }
+   &__date {
+      font-weight: 500;
+      color: var(--lighter_text);
+      @include breakpoint("medium") {
+         font-size: 0.85rem;
+      }
+   }
+   &__share {
+      grid-column: 4;
+      box-sizing: content-box;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 2.75em;
+      height: 2.75em;
+      z-index: 3;
+      border-radius: 50%;
+      background-color: var(--icon_bg);
+      transition: 300ms background-color ease-out;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+   }
+   &__share:hover {
+      background-color: var(--icon_bg_hovered);
+   }
+   &__share_options {
+      position: absolute;
+      z-index: 1;
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: min(calc(1rem + 4vw), 1.2rem);
+      padding-block: 2.2em;
+      padding-inline: 2.5em;
+      bottom: 0;
+      border-radius: 0 0 1rem 1rem;
+      background-color: var(--share_area_bg);
+      transform: translateY(100px);
+      & > img {
+         cursor: pointer;
+         transition: 300ms transform ease-in-out;
+      }
+      & > img:hover {
+         transform: scale(130%);
+      }
+   }
+   &__share_options_big_screen {
+      position: absolute;
+      z-index: 5;
+      display: flex;
+      padding: 1.25rem 2.25rem;
+      gap: 1.25rem;
+      border-radius: 1rem;
+      right: -76.5px;
+      bottom: 95px;
+      transform: scale(0);
+      background-color: var(--share_area_bg);
+      box-shadow: 2px 4px 4px hsl(0deg 0% 0% / 0.3);
+      & > img {
+         cursor: pointer;
+         transition: 300ms transform ease-in-out;
+      }
+      & > img:hover {
+         transform: scale(130%);
+      }
+   }
+   &__share_options_big_screen::after {
+      content: url(/images/message-arrow.svg);
+      position: absolute;
+      width: 2rem;
+      height: auto;
+      bottom: -1.7rem;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      z-index: 999;
+      filter: var(--filter_dark);
+   }
+   &__share_text {
+      color: var(--share_area_text);
+      letter-spacing: min(0.5ch, 0.5vw);
+      font-weight: 500;
+   }
+}

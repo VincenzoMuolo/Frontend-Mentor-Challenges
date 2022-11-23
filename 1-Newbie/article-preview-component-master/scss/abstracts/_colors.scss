@@ -1,0 +1,51 @@
+/* Original layout color palette */
+:root {
+   --darker_greyish_blue: hsl(215, 20%, 20%);
+   --darker_blue: hsl(217, 19%, 25%);
+   --very_dark_grayish_blue: hsl(217, 19%, 35%);
+   --desaturated_dark_blue: hsl(214, 17%, 51%);
+   --grayish_blue: hsl(212, 23%, 69%);
+   --light_grayish_blue: hsl(210, 46%, 95%);
+   --white: hsl(0, 0%, 100%);
+   --orange: hsl(27, 56%, 68%);
+
+   --text: var(--very_dark_grayish_blue);
+   --lighter_text: var(--desaturated_dark_blue);
+   --background: var(--light_grayish_blue);
+   --card_background: var(--white);
+   --share_area_bg: var(--very_dark_grayish_blue);
+   --share_area_text: var(--grayish_blue);
+   --icon_bg: var(--light_grayish_blue);
+   --icon_bg_hovered: var(--orange);
+   --sun: url("/images/sun.svg");
+   --moon: url("/images/moon.svg");
+}
+.invert_icon {
+   content: url(../images/icon-share-light.svg);
+}
+.invert_bg {
+   --icon_bg: var(--desaturated_dark_blue);
+}
+.light {
+   --text: var(--very_dark_grayish_blue);
+   --lighter_text: var(--desaturated_dark_blue);
+   --background: var(--light_grayish_blue);
+   --card_background: var(--white);
+   --share_area_bg: var(--very_dark_grayish_blue);
+   --share_area_text: var(--grayish_blue);
+   --icon_bg: var(--light_grayish_blue);
+   --image_brightness: 100%;
+   --icon: var(--moon);
+}
+.dark {
+   --text: var(--orange);
+   --lighter_text: var(--white);
+   --background: var(--darker_greyish_blue);
+   --card_background: var(--darker_blue);
+   --share_area_bg: var(--desaturated_dark_blue);
+   --share_area_text: var(--white);
+   --icon_bg: var(--darker_greyish_blue);
+   --image_brightness: 80%;
+   --filter_dark: invert(53%) sepia(13%) saturate(694%) hue-rotate(174deg) brightness(97%) contrast(90%);
+   --icon: var(--sun);
+}
