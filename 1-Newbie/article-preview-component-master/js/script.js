@@ -16,7 +16,7 @@ function switch_theme() {
 }
 
 function change_options() {
-   if (document.body.clientWidth <= 768) {
+   if (document.body.clientWidth <= 900) {
       document.getElementById("share_option").classList.add("card__share_options");
       document.getElementById("share_option").classList.remove("card__share_options_big_screen");
    } else {
@@ -29,7 +29,7 @@ function open_share_options() {
    document.getElementById("share_icon").classList.toggle("invert_icon");
    document.getElementById("icon_wrapper").classList.toggle("invert_bg");
    let anim_add, anim_remove, anim_add_end_phase, anim_remove_end_phase, wait;
-   if (document.body.clientWidth <= 768) {
+   if (document.body.clientWidth <= 900) {
       (anim_add = "add_anim"), (anim_remove = "remove_anim");
       (anim_add_end_phase = "translateY(0)"), (anim_remove_end_phase = "translateY(100px)");
       wait = 450;
