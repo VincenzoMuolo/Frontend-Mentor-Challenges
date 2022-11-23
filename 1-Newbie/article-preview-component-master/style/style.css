@@ -16,8 +16,8 @@
   --share_area_text: var(--grayish_blue);
   --icon_bg: var(--light_grayish_blue);
   --icon_bg_hovered: var(--orange);
-  --sun: url("/images/sun.svg");
-  --moon: url("/images/moon.svg");
+  --sun: url("../images/sun.svg");
+  --moon: url("../images/moon.svg");
 }
 
 .invert_icon {
@@ -448,7 +448,7 @@ a:hover {
   transform: scale(130%);
 }
 .card__share_options_big_screen::after {
-  content: url(/images/message-arrow.svg);
+  content: url("../images/message-arrow.svg");
   position: absolute;
   width: 2rem;
   height: auto;

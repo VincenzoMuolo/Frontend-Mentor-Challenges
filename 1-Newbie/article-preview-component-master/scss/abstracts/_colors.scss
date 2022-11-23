@@ -17,8 +17,8 @@
    --share_area_text: var(--grayish_blue);
    --icon_bg: var(--light_grayish_blue);
    --icon_bg_hovered: var(--orange);
-   --sun: url("/images/sun.svg");
-   --moon: url("/images/moon.svg");
+   --sun: url("../images/sun.svg");
+   --moon: url("../images/moon.svg");
 }
 .invert_icon {
    content: url(../images/icon-share-light.svg);
