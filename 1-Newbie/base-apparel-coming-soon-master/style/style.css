@@ -26,7 +26,7 @@
   --title: var(--dark-grayish-red);
   --accent: hsl(0, 74%, 74%);
   --bright: 100%;
-  --placeholder: var(--dark-grayish-red);
+  --placeholder: hsla(0, 6%, 24%, 70%);
   --shadow: hsla(0, 75%, 81%, 0.3);
 }
 
@@ -40,6 +40,7 @@
   --accent: hsl(0, 6%, 10%);
   --bright: 80%;
   --placeholder: hsl(0, 80%, 90%);
+  --shadow: hsla(0, 75%, 81%, 0.05);
 }
 
 .anim_loading {
