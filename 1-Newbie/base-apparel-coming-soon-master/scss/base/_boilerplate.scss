@@ -41,15 +41,16 @@ footer {
    display: flex;
    align-items: center;
    justify-content: center;
-   padding-block: 2em 0.8em;
-   position: absolute;
+   padding-block: 3em 0.8em;
+   position: relative;
    bottom: 0;
    flex-wrap: wrap;
    font-size: 0.8em;
-   @include breakpoint("large") {
+   @include breakpoint("x-large") {
       padding-block: 0.8em;
       width: 57.64%;
       font-size: 1.1em;
+      position: absolute;
    }
 }
 footer a {

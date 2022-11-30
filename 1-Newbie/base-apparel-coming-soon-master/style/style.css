@@ -185,17 +185,18 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: 2em 0.8em;
-  position: absolute;
+  padding-block: 3em 0.8em;
+  position: relative;
   bottom: 0;
   flex-wrap: wrap;
   font-size: 0.8em;
 }
-@media screen and (min-width: 64em) {
+@media screen and (min-width: 90em) {
   footer {
     padding-block: 0.8em;
     width: 57.64%;
     font-size: 1.1em;
+    position: absolute;
   }
 }
 
