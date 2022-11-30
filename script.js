@@ -278,6 +278,13 @@ function loadChallenge(challenge, event) {
             location.href = "./1-Newbie/article-preview-component-master/index.html";
          }, 450);
          break;
+      case "newbie-challenge-11":
+         event.stopPropagation();
+         changePageAnim();
+         setTimeout(function waitAnim() {
+            location.href = "./1-Newbie/base-apparel-coming-soon-master/index.html";
+         }, 450);
+         break;
       default:
          break;
    }
