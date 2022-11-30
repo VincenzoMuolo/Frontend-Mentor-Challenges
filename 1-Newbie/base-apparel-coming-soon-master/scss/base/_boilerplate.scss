@@ -24,6 +24,7 @@ input[type="submit"] {
 
 .background-desktop {
    height: 100%;
+   max-height: max-content;
    width: 57.64%;
    position: absolute;
    z-index: -1;
