@@ -1,0 +1,62 @@
+@use "../abstracts/" as *;
+
+body {
+   font-size: 1em;
+   font-family: "Josefin Sans", sans-serif;
+   background: var(--background);
+   color: var(--text);
+   transition: 300ms color ease-in-out, 300ms background-color ease-in-out;
+}
+
+h1 {
+   text-transform: uppercase;
+   & > span {
+      color: var(--title);
+   }
+}
+input[type="email"] {
+   background-color: transparent;
+   color: var(--text);
+}
+input[type="submit"] {
+   background: var(--gradient-red);
+}
+
+.background-desktop {
+   height: 100%;
+   width: 57.64%;
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   @include breakpoint("medium") {
+      display: block !important;
+      content: var(--desktop-template);
+   }
+}
+footer {
+   width: 100%;
+   color: var(--title);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding-block: 2em 0.8em;
+   position: absolute;
+   bottom: 0;
+   flex-wrap: wrap;
+   font-size: 0.8em;
+   @include breakpoint("large") {
+      padding-block: 0.8em;
+      width: 57.64%;
+      font-size: 1.1em;
+   }
+}
+footer a {
+   color: var(--title);
+   text-decoration: none;
+   padding-inline: 0.5em;
+}
+footer a:hover {
+   color: var(--text);
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- displays site properly based on user's device -->
+
+      <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+      <title>Frontend Mentor | Base Apparel coming soon page</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
+         rel="stylesheet"
+      />
+      <link rel="stylesheet" href="/style/style.css" />
+      <script src="script/script.js"></script>
+   </head>
+   <body class="light">
+      <div class="background-desktop" style="display: none"></div>
+      <main>
+         <div class="navbar">
+            <div class="logo"></div>
+            <div class="switch_theme" onclick="switch_theme()"></div>
+         </div>
+         <picture>
+            <source media="(min-width: 48em)" srcset="images/hero-desktop.jpg" />
+            <img src="images/hero-mobile.jpg" alt="" aria-hidden="true" />
+         </picture>
+         <article>
+            <h1 class="title">We're <span>coming</span><span>soon</span></h1>
+            <p>
+               Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and
+               our launch deals.
+            </p>
+            <fieldset>
+               <input id="email" type="email" placeholder="Email Address" />
+               <img id="error_icon" class="error-icon" style="transform: scale(0)" src="images/icon-error.svg" alt="" aria-hidden="true" />
+               <button onclick="check_email()">
+                  <img id="button_icon" src="images/icon-arrow.svg" alt="" aria-hidden="true" />
+                  <img id="button_loading" style="display: none" src="images/loading.svg" alt="" aria-hidden="true" />
+                  <img id="button_success" style="display: none" src="images/check.svg" alt="" aria-hidden="true" />
+               </button>
+               <span id="error_msg" class="error-msg" style="transform: scale(0)">Please provide a valid email</span>
+            </fieldset>
+         </article>
+      </main>
+      <footer>
+         Challenge by
+         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor.</a>
+         Coded by
+         <a href="https://github.com/VincenzoMuolo">Vincenzo Muolo.</a>
+      </footer>
+   </body>
+</html>

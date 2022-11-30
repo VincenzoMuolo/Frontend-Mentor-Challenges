@@ -1,0 +1,15 @@
+.box-shadow {
+   box-shadow: 1px 2px 4px hsl(220deg 60% 50%);
+}
+
+.drop-shadow {
+   filter: drop-shadow(1px 2px 4px hsl(220deg 60% 50%));
+}
+
+.traditional-box-shadow {
+   box-shadow: 0 12px 12px rgba(243, 170, 170, 0.3);
+}
+.layered-box-shadow {
+   box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+      0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+}

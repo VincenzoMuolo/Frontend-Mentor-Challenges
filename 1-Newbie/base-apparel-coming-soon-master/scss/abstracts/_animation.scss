@@ -1,0 +1,48 @@
+@use "breakpoints" as *;
+
+.anim_loading {
+   animation: loading_loop;
+   animation-duration: 500ms;
+   animation-iteration-count: 3;
+   animation-timing-function: ease-out;
+}
+.anim_success {
+   animation: scale_anim;
+   animation-duration: 300ms;
+   animation-iteration-count: 1;
+   animation-timing-function: ease-out;
+}
+@keyframes loading_loop {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}
+@keyframes scale_anim {
+   0% {
+      transform: rotate(0);
+   }
+   25% {
+      transform: rotate(-25deg);
+   }
+   50% {
+      transform: rotate(25deg);
+   }
+   100% {
+      transform: rotate(0);
+   }
+}
+
+.show_error {
+   transform: scale(100%) !important;
+}
+
+.hide_btn {
+   display: none;
+}
+.show_btn {
+   display: flex !important;
+   transform: scale(100%);
+}
