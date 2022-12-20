@@ -1,0 +1,45 @@
+/* Original layout color palette */
+:root {
+   --primary-cyan: hsl(179, 61%, 44%);
+   --primary-cyan-light: hsl(179, 47%, 52%);
+   --primary-yellow: hsl(71, 73%, 54%);
+   --neutral-gray: hsl(204, 43%, 93%);
+   --neutral-blue: hsl(218, 22%, 67%);
+   --neutral-white: hsl(0, 0%, 100%);
+
+   --dark-gray: hsl(204, 43%, 20%);
+   --dark-cyan: hsl(179, 61%, 24%);
+   --light-yellow: hsl(71, 83%, 53%);
+
+   --background: var(--neutral-gray);
+   --article-bg: var(--neutral-white);
+   --article-title: var(--primary-cyan);
+   --article-sub-title: var(--primary-yellow);
+   --article-p: var(--neutral-blue);
+   --section-1-bg: var(--primary-cyan);
+   --section-2-bg: var(--primary-cyan-light);
+   --section-p: var(--neutral-white);
+   --footer-hover: var(--primary-yellow);
+   --icon: url("../images/moon.svg");
+}
+
+.light {
+   --icon: url("../images/moon.svg");
+   --background: var(--neutral-gray);
+   --article-bg: var(--neutral-white);
+   --article-title: var(--primary-cyan);
+   --article-sub-title: var(--primary-yellow);
+   --article-p: var(--neutral-blue);
+   --section-1-bg: var(--primary-cyan);
+   --section-2-bg: var(--primary-cyan-light);
+   --section-p: var(--neutral-white);
+   --footer-hover: var(--primary-yellow);
+}
+.dark {
+   --icon: url("../images/sun.svg");
+   --background: var(--dark-gray);
+   --article-bg: var(--neutral-blue);
+   --article-p: var(--neutral-white);
+   --article-title: var(--dark-cyan);
+   --article-sub-title: var(--light-yellow);
+}

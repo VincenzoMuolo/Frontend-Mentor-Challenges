@@ -1,0 +1,114 @@
+@use "../abstracts/" as *;
+main {
+   width: 80%;
+   position: relative;
+   max-width: 19.44rem;
+   padding-block: 4.5rem;
+   margin-inline: auto;
+   display: grid;
+   grid-template-columns: 1fr;
+   @include breakpoint("medium") {
+      grid-template-columns: 50% 50%;
+      width: 90%;
+      max-width: 45em;
+   }
+   & > article {
+      height: 16.7rem;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      border-radius: 0.25rem 0.25rem 0 0;
+      gap: 1.1em;
+      padding: 1.5em;
+      background-color: var(--article-bg);
+      @include breakpoint("medium") {
+         height: 13.6em;
+         grid-row: 1;
+         grid-column: span 2;
+         padding: 2.35em 2.9em;
+      }
+      & > h1 {
+         color: var(--article-title);
+      }
+      & > h2 {
+         color: var(--article-sub-title);
+         font-size: 1rem !important;
+         @include breakpoint("medium") {
+            padding-top: 0.2em;
+            font-size: 1.1rem !important;
+         }
+      }
+      & > p {
+         color: var(--article-p);
+      }
+   }
+   & > .section-1 {
+      height: 14.25rem;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5em;
+      background-color: var(--section-1-bg);
+      color: var(--section-p);
+      @include breakpoint("medium") {
+         grid-row: 2;
+         height: 16.25em;
+         border-radius: 0 0 0 0.25rem;
+      }
+      & > p {
+         font-size: 0.9em;
+      }
+      & > .price {
+         height: fit-content;
+         display: flex;
+         justify-content: flex-start;
+         align-items: center;
+         margin-block: 1.5em 0.25em;
+         gap: 1em;
+         & > p {
+            font-size: 2em;
+            font-weight: 700;
+            line-height: 1;
+         }
+         & > span {
+            font-size: 0.9em;
+            filter: opacity(70%);
+         }
+      }
+      & > button {
+         padding-block: 0.8em;
+         margin-top: 1.3em;
+         color: var(--section-p);
+         background-color: var(--primary-yellow);
+         border: 0;
+         border-radius: 0.25em;
+         cursor: pointer;
+         transition: 300ms background-color ease-in-out;
+      }
+      & > button:hover {
+         background-color: hsl(71, 73%, 44%);
+      }
+   }
+   & > .section-2 {
+      height: 14.18rem;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1em;
+      padding: 1.5em;
+      border-radius: 0 0 0.25rem 0.25rem;
+      background-color: var(--section-2-bg);
+      color: var(--section-p);
+      @include breakpoint("medium") {
+         grid-row: 2;
+         height: 16.25em;
+         border-radius: 0 0 0.25rem 0;
+      }
+      & > ul {
+         list-style: none;
+         margin: 0;
+         padding: 0;
+         filter: opacity(80%);
+      }
+   }
+}

@@ -1,0 +1,83 @@
+@use "../abstracts/" as *;
+
+body {
+   width: 100%;
+   position: relative;
+   font-size: 1em;
+   font-family: "Karla", sans-serif;
+   background: var(--background);
+   transition: 300ms color ease-in-out, 300ms background-color ease-in-out;
+   @include breakpoint("medium") {
+      display: grid;
+      place-content: center;
+   }
+   & > .switch_theme {
+      width: 2rem;
+      height: 2rem;
+      position: absolute;
+      z-index: 999;
+      right: 0;
+      left: 0;
+      top: 2vh;
+      margin-inline: auto;
+      border-radius: 25px;
+      content: var(--icon);
+      cursor: pointer;
+      transition: 300ms background-color ease-out;
+      @include breakpoint("medium") {
+         top: 4vh;
+      }
+   }
+}
+h1 {
+   font-size: 1.3rem;
+   font-weight: 700;
+   @include breakpoint("medium") {
+      font-size: 1.5rem;
+   }
+}
+h2 {
+   font-size: 1.1rem;
+   line-height: 1.2;
+   font-weight: 700;
+   @include breakpoint("medium") {
+      font-size: 1.3rem;
+   }
+}
+p,
+li {
+   font-size: 0.825rem;
+   font-weight: 400;
+   @include breakpoint("medium") {
+      font-size: 0.9rem;
+   }
+}
+p {
+   line-height: 2;
+}
+
+footer {
+   width: 100%;
+   color: var(--article-p);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding-block: 1.5em 0.4em;
+   position: relative;
+   bottom: 0;
+   flex-wrap: wrap;
+   font-size: 0.8rem;
+   @include breakpoint("x-large") {
+      position: absolute;
+      padding-block: 0.8em;
+      font-size: 1.1rem;
+   }
+}
+footer a {
+   color: var(--article-p);
+   text-decoration: none;
+   padding-inline: 0.5em;
+}
+footer a:hover {
+   color: var(--footer-hover);
+}
