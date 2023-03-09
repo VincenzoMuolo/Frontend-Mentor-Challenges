@@ -1,0 +1,31 @@
+{
+  "name": "frontend-mentor-challenges",
+  "version": "1.0.0",
+  "description": "<h3>My solutions to Frontend Mentor challenges.</h3>\r <h4>\r   There are 5 level of difficulty to go through:\r   <ul>\r   <li>1 Newbie</li>\r   <li>2 Junior</li>\r   <li>3 Intermediate</li>\r   <li>4 Advanced</li>\r   <li>5 Guru</li>\r   </ul>\r </h4>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VincenzoMuolo/Frontend-Mentor-Challenges.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VincenzoMuolo/Frontend-Mentor-Challenges/issues"
+  },
+  "homepage": "https://github.com/VincenzoMuolo/Frontend-Mentor-Challenges#readme",
+  "dependencies": {
+    "browser-sync": "^2.27.12",
+    "cssnano": "^5.1.15",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-terser": "^2.1.0"
+  },
+  "devDependencies": {
+    "sass": "^1.58.3"
+  }
+}

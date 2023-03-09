@@ -1,4 +1,5 @@
-
-Background-grid-idea/css/style.css
-Background-grid-idea/html/index.html
-Background-grid-idea/js/script.js
+node_modules/
+.prettierrc/
+gulpfile.js/
+package.json/
+package-look.json/
